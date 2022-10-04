@@ -6,6 +6,7 @@ import './Components/Poster.scss';
 import './Components/Modal/Modal.scss';
 
 import './Utils/FindChild.js';
+import './Utils/GetDuration';
 
 import './Player/Player.js';
 import './Components/ControlBar/ControlBar.js';

@@ -4,15 +4,27 @@ $live-color: #e91e63;
 $live-off-color: #ccc;
 
 .vjs-live-streaming {
-  .vjs-progress-control,
+  // .vjs-progress-control,
   .vjs-time-control {
-    display: none !important;
+    &.vjs-duration,
+    &.vjs-time-divider {
+      display: none !important;
+    }
+    &.vjs-current-time {
+      padding-right: 1em;
+    }
   }
 
   .vjs-live-notice {
     display: flex;
     align-items: center;
     font-size: 0.9em;
+    line-height: $control-bar-button-height;
+    cursor: pointer;
+
+    &.vjs-at-live-edge {
+      cursor: default;
+    }
   }
 }
 
@@ -21,11 +33,13 @@ $live-off-color: #ccc;
 }
 
 .vjs-live-notice-spot {
-  font-size: 0.65em;
+  font-size: 0.7em;
   margin-right: 0.4em;
   color: $live-off-color;
+  line-height: 1em;
 
-  .vjs-live-streaming.vjs-live & {
+  // .vjs-live-streaming.vjs-live & {
+    .vjs-live-streaming .vjs-live-notice.vjs-at-live-edge & {
     color: $live-color;
   }
 }
