@@ -13,7 +13,7 @@
   .vjs-icon-placeholder {
     &:before {
       font-size: 0.95em;
-      transform: translateY(0.05em);
+      // transform: translateY(0.05em);
       display: block;
     }
   }
@@ -67,7 +67,7 @@
     @extend .vjs-icon-cog;
     &:before {
       font-size: 0.8em;
-      transform: translateY(-0.005em);
+      // transform: translateY(-0.005em);
       display: block;
     }
   }

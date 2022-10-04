@@ -96,6 +96,9 @@
 .vjs-time-control {
   font-size: 0.85em;
   line-height: $control-bar-button-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &.vjs-time-divider {
     min-width: 1em;
     text-align: center;
@@ -189,6 +192,7 @@ $transition-duration: 0.3s;
 $dotSize: 0.8125em;
 
 .video-js .vjs-volume-panel {
+  display: flex;
   transition: min-width #{$transition-duration};
   margin-right: 5px;
 

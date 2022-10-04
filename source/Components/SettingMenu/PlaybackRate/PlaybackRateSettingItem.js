@@ -9,6 +9,7 @@ class PlaybackRateSettingItem extends SettingOptionItem {
       label: 'Speed',
       icon: 'vjs-icon-slow-motion-video',
       entries: [
+        0.25,
         0.5,
         0.75,
         {
@@ -18,6 +19,7 @@ class PlaybackRateSettingItem extends SettingOptionItem {
         },
         1.25,
         1.5,
+        1.75,
         2
       ]
     });
