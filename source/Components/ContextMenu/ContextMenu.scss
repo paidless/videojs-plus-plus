@@ -42,9 +42,12 @@
     position: absolute;
     top: 0;
     left: 0;
+    max-height: 100%;
+    overflow: auto;
 
     .vjs-menu-content {
       width: calc-menu-width(225/16);
+      overflow: auto;
     }
   }
 }
@@ -53,8 +56,14 @@
   .vjs-context-menu {
     top: 0 !important;
     left: 0 !important;
+    margin-top: initial !important;
+    margin-left: initial !important;
 
     @include visibility-transition-menu-style(':not(.vjs-hidden)');
+
+    .vjs-menu-content {
+      height: initial !important;
+    }
 
     &.vjs-hidden {
       display: block !important;
