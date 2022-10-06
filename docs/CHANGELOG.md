@@ -1,5 +1,17 @@
 ## Change Log <!-- {docsify-ignore-all} -->
 
+### 1.7.0
+
+#### Update
+
+- Rename to videojs-plus-plus
+
+#### Bug Fixes
+
+- Fix progress bar on live mode
+- Fix context menu position
+- Improve UI
+
 ### 1.6.9
 
 #### Bug Fixes
