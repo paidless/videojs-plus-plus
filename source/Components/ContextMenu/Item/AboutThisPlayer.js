@@ -13,7 +13,7 @@ class AboutThisPlayer extends ContextMenuItem {
   handleClick() {
     super.handleClick();
 
-    window.open('https://github.com/Pong420/videojs-plus', '_blank');
+    window.open('https://github.com/paidless/videojs-plus-plus', '_blank');
   }
 }
 

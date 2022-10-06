@@ -1,9 +1,9 @@
 {
-  "name": "videojs-plus",
+  "name": "videojs-plus-plus",
   "version": "1.6.9",
   "description": "An extension and skin for video.js",
-  "main": "dist/videojs-plus.umd.js",
-  "module": "dist/videojs-plus.es5.js",
+  "main": "dist/videojs-plus-plus.umd.js",
+  "module": "dist/videojs-plus-plus.es5.js",
   "typings": "./index.d.ts",
   "files": [
     "dist",

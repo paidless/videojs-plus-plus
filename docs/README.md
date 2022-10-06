@@ -1,17 +1,19 @@
-## VideoJS Plus <!-- {docsify-ignore-all} -->
+## VideoJS Plus Plus <!-- {docsify-ignore-all} -->
 
-VideoJS Plus is an extension and skin for [video.js](https://github.com/videojs/video.js). <br>
+Inherit on [videojs-plus](https://github.com/paidless/videojs-plus-plus).
+
+VideoJS Plus Plus is an extension and skin for [video.js](https://github.com/videojs/video.js). <br>
 
 <img src="./assets/screenshot/electron-frameless-player.png">
 
-[Documentation](https://pong420.github.io/videojs-plus/docs/)
+[Documentation](https://paidless.github.io/videojs-plus-plus/docs/)
 
 ### Installation
 
 ```bash
-npm install videojs-plus
+npm install videojs-plus-plus
 # or
-yarn add videojs-plus
+yarn add videojs-plus-plus
 ```
 
 ### Usage
@@ -21,7 +23,7 @@ yarn add videojs-plus
   ```html highlight=3,14,15,17
   <html>
     <head>
-      <link rel="stylesheet" href="videojs-plus.css" />
+      <link rel="stylesheet" href="videojs-plus-plus.css" />
     </head>
     <body>
       <video
@@ -33,7 +35,7 @@ yarn add videojs-plus
       </video>
     </body>
     <script src="http://vjs.zencdn.net/7.4.1/video.js"></script>
-    <script src="videojs-plus.umd.js"></script>
+    <script src="videojs-plus-plus.umd.js"></script>
     <script>
       const player = videojs('example-video');
     </script>

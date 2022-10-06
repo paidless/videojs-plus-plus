@@ -2,7 +2,7 @@
 
 A plugin for switch video quality by HLS playlist.
 
-[Demo](https://pong420.github.io/videojs-plus/examples/quality-hls.html)
+[Demo](https://paidless.github.io/videojs-plus-plus/examples/quality-hls.html)
 
 ### Usage
 
