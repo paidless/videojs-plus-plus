@@ -4,6 +4,7 @@ $dotSize: $barHeightHover * 3;
 $bg1: rgba(255, 255, 255, 0.4);
 $bg2: rgba(255, 255, 255, 0.6);
 $bg3: rgba(255, 255, 255, 1);
+$progressTransition: cubic-bezier(0.4, 0, 1, 1);
 
 .vjs-progress-control {
   position: absolute !important;
@@ -21,8 +22,10 @@ $bg3: rgba(255, 255, 255, 1);
     &:before,
     > div {
       position: absolute;
-      height: $barHeight;
+      height: $barHeightHover;
       margin: #{($dotSize - $barHeightHover) / 2} auto;
+      transform: scale(1, .7);
+      transition: transform 0.1s $progressTransition;
     }
     &:before {
       content: '';
@@ -36,6 +39,9 @@ $bg3: rgba(255, 255, 255, 1);
     .vjs-play-progress {
       background-color: $bg3;
     }
+    .vjs-mouse-display {
+      transform: none;
+    }
     .vjs-play-progress {
       &:before {
         font-size: $dotSize;
@@ -43,8 +49,10 @@ $bg3: rgba(255, 255, 255, 1);
         top: -($dotSize - $barHeightHover) / 2;
         right: -$dotSize/2;
         z-index: 1;
-        line-height: 1em;
+        // line-height: 1em;
         opacity: 0;
+        transform: scale(0, 0.142857142857);
+        transition: transform 0.1s $progressTransition, opacity 0.1s $progressTransition;
       }
     }
   }
@@ -63,6 +71,7 @@ $bg3: rgba(255, 255, 255, 1);
 @mixin showDotOnProgressBar {
   .vjs-play-progress:before {
     opacity: 1;
+    transform: none;
   }
 }
 
@@ -70,6 +79,7 @@ $bg3: rgba(255, 255, 255, 1);
   &:before,
   > div {
     height: $barHeightHover;
+    transform: none;
   }
 }
 

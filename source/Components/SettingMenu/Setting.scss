@@ -174,7 +174,7 @@
 
 @media (min-width: $small-dimension + 1) {
   .vjs-menu.vjs-setting-menu {
-    right: 10px;
+    right: $control-bar-horizontal-padding;
     bottom: calc(#{$control-bar-height} + 15px);
     z-index: 1;
     max-height: calc(90% - #{$control-bar-height});

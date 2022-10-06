@@ -1,6 +1,7 @@
 import videojs from 'video.js';
 
 import './TimeTooltip';
+import './ProgressBarPadding';
 
 import './Progress.scss';
 

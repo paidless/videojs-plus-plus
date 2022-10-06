@@ -247,8 +247,8 @@ $dotSize: 0.8125em;
     text-align: right;
     &:before {
       position: absolute;
-      top: #{($barHeight - $dotSize) / 2};
-      right: $dotSize / -2;
+      top: #{(($barHeight / 2) - $dotSize) / 2};
+      right: #{($dotSize + ($barHeight / 2)) / -2};
       font-size: $dotSize;
     }
   }
