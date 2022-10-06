@@ -1,0 +1,30 @@
+.vjs-live-streaming .vjs-time-control.vjs-duration, .vjs-live-streaming .vjs-time-control.vjs-time-divider {
+  display: none !important;
+}
+.vjs-live-streaming .vjs-time-control.vjs-current-time {
+  padding-right: 1em;
+}
+.vjs-live-streaming .vjs-live-notice {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  line-height: 1.8em;
+  cursor: pointer;
+}
+.vjs-live-streaming .vjs-live-notice.vjs-at-live-edge {
+  cursor: default;
+}
+
+.vjs-live-notice {
+  display: none;
+}
+
+.vjs-live-notice-spot {
+  font-size: 0.7em;
+  margin-right: 0.4em;
+  color: #ccc;
+  line-height: 1em;
+}
+.vjs-live-streaming .vjs-live-notice.vjs-at-live-edge .vjs-live-notice-spot {
+  color: #e91e63;
+}
