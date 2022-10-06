@@ -3,7 +3,7 @@ const ghpages = require('gh-pages');
 ghpages.publish(
   './',
   {
-    src: ['docs/**/*', 'dist/**/*', '.nojekyll'],
+    src: ['docs/**/*', 'dist/**/*', 'examples/**/*', '.nojekyll'],
     dotfiles: true
   },
   function (err) {
