@@ -177,7 +177,7 @@
     right: $control-bar-horizontal-padding;
     bottom: calc(#{$control-bar-height} + 15px);
     z-index: 1;
-    max-height: calc(90% - #{$control-bar-height});
+    max-height: $menu-with-title-max-height;
     overflow-y: auto;
 
     .vjs-menu-item {

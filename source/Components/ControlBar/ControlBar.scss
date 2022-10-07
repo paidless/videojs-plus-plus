@@ -194,14 +194,14 @@ $dotSize: 0.8125em;
 .video-js .vjs-volume-panel {
   display: flex;
   transition: min-width #{$transition-duration};
-  margin-right: 5px;
+  // margin-right: 5px;
 
   .vjs-volume-control {
     opacity: 0;
     width: 1px;
     height: $control-bar-height;
     margin-left: -1px;
-    transition: width #{$transition-duration}, opacity #{$transition-duration};
+    transition: width #{$transition-duration}, opacity #{$transition-duration}, margin #{$transition-duration};
   }
 
   &:hover .vjs-volume-control,
@@ -213,7 +213,7 @@ $dotSize: 0.8125em;
   & .vjs-volume-control.vjs-slider-active {
     &.vjs-volume-horizontal {
       width: $volLevelWidth;
-      margin-right: 10px;
+      margin-right: 0.75em;
     }
 
     visibility: visible;
@@ -228,6 +228,10 @@ $dotSize: 0.8125em;
       min-width: calc(#{$control-bar-button-width} + #{$volLevelWidth});
       margin-right: #{($dotSize - $barHeight) / 2};
     }
+  }
+
+  .vjs-mute-control {
+    margin-right: 0.75em;
   }
 
   .vjs-mute-control,

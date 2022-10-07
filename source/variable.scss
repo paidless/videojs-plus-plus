@@ -3,6 +3,9 @@ $control-bar-button-height: $control-bar-height * 0.72;
 $control-bar-horizontal-padding: 0.75em;
 $control-bar-hidden: '.vjs-user-inactive.vjs-playing:not(.vjs-keep-control-showing)';
 $control-bar-button-width: $control-bar-height * 0.9;
+$title-height: 2.5em;
+$menu-max-height: calc(100% - (#{$control-bar-height} + 15px));
+$menu-with-title-max-height: calc(100% - ((#{$control-bar-height} + 15px) + (#{$title-height} + 5px)));
 
 @mixin disable-volume-level() {
   .vjs-volume-control {
@@ -65,6 +68,8 @@ $small-dimension: 480px;
 
       .vjs-menu-content {
         transform: translateY(0);
+        overflow: auto;
+        max-height: $menu-max-height;
       }
     }
   }
