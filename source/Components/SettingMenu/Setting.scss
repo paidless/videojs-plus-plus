@@ -91,8 +91,9 @@
 
 .vjs-menu-item.vjs-settings-sub-menu-title {
   background-color: transparent !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   padding: 0.6em 1em;
+  margin-bottom: 0.3em;
   &:after {
     content: 'Hi, i am padding';
     visibility: hidden;
@@ -192,7 +193,8 @@
   }
 
   .vjs-menu-item.vjs-settings-sub-menu-title {
-    margin-bottom: 0.3em;
+    // margin-bottom: 0.3em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   }
 
   .vjs-setting-menu-value {
