@@ -4,9 +4,15 @@ import './Live.scss';
 
 const Plugin = videojs.getPlugin('plugin');
 
+const defaults = {
+  dvr: true
+}
+
 class Live extends Plugin {
   constructor(player, options = {}) {
     super(player, options);
+
+    this.options = videojs.mergeOptions(defaults, options);
 
     this.createLiveNotive(player);
 
@@ -28,11 +34,15 @@ class Live extends Plugin {
     const onTimeupdate = this.onTimeUpdate.bind(this);
 
     player.addClass('vjs-live-streaming');
+    if (this.options.dvr) {
+      player.addClass('vjs-live-dvr');
+    }
     player.on('timeupdate', onTimeupdate);
 
     this.on('dispose', () => {
       player.off('timeupdate', onTimeupdate);
       player.removeClass('vjs-live-streaming');
+      player.removeClass('vjs-live-dvr');
       player.removeClass('vjs-live');
     });
   }

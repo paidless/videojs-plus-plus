@@ -33,7 +33,7 @@ $live-off-color: #ccc;
 }
 
 .vjs-live-notice-spot {
-  font-size: 0.7em;
+  font-size: 0.65em;
   margin-right: 0.4em;
   color: $live-off-color;
   line-height: 1em;
@@ -41,5 +41,19 @@ $live-off-color: #ccc;
   // .vjs-live-streaming.vjs-live & {
     .vjs-live-streaming .vjs-live-notice.vjs-at-live-edge & {
     color: $live-color;
+  }
+}
+
+.vjs-live:not(.vjs-live-dvr) {
+  .vjs-progress-control {
+    pointer-events: none;
+    .vjs-progress-holder {
+      .vjs-play-progress {
+        width: 100% !important;
+        &:before {
+          display: none;
+        }
+      }
+    }
   }
 }
