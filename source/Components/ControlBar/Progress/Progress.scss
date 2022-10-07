@@ -99,6 +99,15 @@ $progressTransition: cubic-bezier(0.4, 0, 1, 1);
   }
 }
 
+.video-js:not(.vjs-workinghover) {
+  .vjs-progress-control {
+    @include showDotOnProgressBar();
+    .vjs-progress-holder {
+      @include extendProgressBar();
+    }
+  }
+}
+
 .vjs-progress-control {
   .vjs-sliding {
     @include showDotOnProgressBar();
