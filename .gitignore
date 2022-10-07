@@ -16,3 +16,6 @@ temp
 
 package
 *tgz
+
+# sandbox
+examples/*.sandbox.html
