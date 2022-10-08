@@ -1,6 +1,6 @@
 ## Playlist <!-- {docsify-ignore-all} -->
 
-<link rel="stylesheet" href="/docs/assets/playlist.css" />
+<link rel="stylesheet" href="./assets/playlist.css" />
 
 ### Usage
 
