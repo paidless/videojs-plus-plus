@@ -254,6 +254,7 @@ $dotSize: 0.8125em;
       top: #{(($barHeight / 2) - $dotSize) / 2};
       right: #{($dotSize + ($barHeight / 2)) / -2};
       font-size: $dotSize;
+      line-height: 1em;
     }
   }
 
