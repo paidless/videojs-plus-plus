@@ -1,5 +1,12 @@
 ## Change Log <!-- {docsify-ignore-all} -->
 
+### 1.7.2
+
+#### Bug Fixes
+
+- Fix progress bar UI on Firefox
+- Fix volume bar UI on Firefox
+
 ### 1.7.1
 
 #### Bug Fixes
