@@ -607,6 +607,23 @@ body.vjs-full-window {
   flex-grow: 1;
 }
 
+.vjs-poster {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-color: #000;
+  outline: none;
+}
+
+.vjs-has-started:not(.vjs-ended) .vjs-poster {
+  visibility: hidden;
+}
+
 .vjs-loading-spinner {
   display: none;
   width: 50px;
@@ -654,23 +671,6 @@ body.vjs-full-window {
     transform: rotate(360deg);
   }
 }
-.vjs-poster {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: contain;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-color: #000;
-  outline: none;
-}
-
-.vjs-has-started:not(.vjs-ended) .vjs-poster {
-  visibility: hidden;
-}
-
 .vjs-modal-dialog {
   position: absolute;
   top: 0;
@@ -707,11 +707,15 @@ body.vjs-full-window {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  overflow: hidden;
   font-size: 16px;
   /* 
   *   hide ios big play button 
   *   https://stackoverflow.com/questions/8911247/hide-iphone-html5-video-play-button 
   */
+}
+.video-js.vjs-fullscreen {
+  font-size: 22px;
 }
 .video-js *,
 .video-js *:before,
@@ -872,14 +876,13 @@ body.vjs-full-window {
 .video-js .vjs-volume-panel {
   display: flex;
   transition: min-width 0.3s;
-  margin-right: 5px;
 }
 .video-js .vjs-volume-panel .vjs-volume-control {
   opacity: 0;
   width: 1px;
   height: 2.5em;
   margin-left: -1px;
-  transition: width 0.3s, opacity 0.3s;
+  transition: width 0.3s, opacity 0.3s, margin 0.3s;
 }
 .video-js .vjs-volume-panel:hover .vjs-volume-control, .video-js .vjs-volume-panel:active .vjs-volume-control, .video-js .vjs-volume-panel:focus .vjs-volume-control, .video-js .vjs-volume-panel .vjs-volume-control:hover, .video-js .vjs-volume-panel .vjs-volume-control:active, .video-js .vjs-volume-panel .vjs-mute-control:hover ~ .vjs-volume-control, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active {
   visibility: visible;
@@ -888,11 +891,14 @@ body.vjs-full-window {
 }
 .video-js .vjs-volume-panel:hover .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel:active .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel:focus .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel .vjs-volume-control:hover.vjs-volume-horizontal, .video-js .vjs-volume-panel .vjs-volume-control:active.vjs-volume-horizontal, .video-js .vjs-volume-panel .vjs-mute-control:hover ~ .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active.vjs-volume-horizontal {
   width: 3em;
-  margin-right: 10px;
+  margin-right: 0.75em;
 }
 .video-js .vjs-volume-panel.vjs-volume-panel-horizontal:hover, .video-js .vjs-volume-panel.vjs-volume-panel-horizontal:active, .video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-slider-active {
   min-width: calc(2.25em + 3em);
   margin-right: 0.3125em;
+}
+.video-js .vjs-volume-panel .vjs-mute-control {
+  margin-right: 0.75em;
 }
 .video-js .vjs-volume-panel .vjs-mute-control,
 .video-js .vjs-volume-panel .vjs-volume-control {
@@ -933,7 +939,9 @@ body.vjs-full-window {
 
 .vjs-title {
   color: #fff;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   padding: 0 15px 5px 15px;
   width: 100%;
   overflow: hidden;
@@ -1052,6 +1060,8 @@ body.vjs-full-window {
   }
   .vjs-context-menu:not(.vjs-hidden) .vjs-menu-content {
     transform: translateY(0);
+    overflow: auto;
+    max-height: calc(100% - (2.5em + 15px));
   }
 }
 @media (max-width: 480px) {
@@ -1119,6 +1129,8 @@ body.vjs-full-window {
   }
   .vjs-setting-menu.vjs-lock-showing .vjs-menu-content {
     transform: translateY(0);
+    overflow: auto;
+    max-height: calc(100% - (2.5em + 15px));
   }
 }
 .vjs-setting-menu::-webkit-scrollbar {
@@ -1170,8 +1182,9 @@ body.vjs-full-window {
 
 .vjs-menu-item.vjs-settings-sub-menu-title {
   background-color: transparent !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   padding: 0.6em 1em;
+  margin-bottom: 0.3em;
 }
 .vjs-menu-item.vjs-settings-sub-menu-title:after {
   content: "Hi, i am padding";
@@ -1242,7 +1255,7 @@ body.vjs-full-window {
     right: 0.75em;
     bottom: calc(2.5em + 15px);
     z-index: 1;
-    max-height: calc(90% - 2.5em);
+    max-height: calc(100% - ((2.5em + 15px) + (2.5em + 5px)));
     overflow-y: auto;
   }
   .vjs-menu.vjs-setting-menu .vjs-menu-item .vjs-icon-placeholder {
@@ -1254,7 +1267,7 @@ body.vjs-full-window {
   }
 
   .vjs-menu-item.vjs-settings-sub-menu-title {
-    margin-bottom: 0.3em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   }
 
   .vjs-setting-menu-value {
@@ -1412,6 +1425,16 @@ body.vjs-full-window {
 }
 .vjs-workinghover .vjs-progress-control:hover .vjs-mouse-display .vjs-time-tooltip {
   display: block;
+}
+
+.video-js:not(.vjs-workinghover) .vjs-progress-control .vjs-play-progress:before {
+  opacity: 1;
+  transform: none;
+}
+.video-js:not(.vjs-workinghover) .vjs-progress-control .vjs-progress-holder:before,
+.video-js:not(.vjs-workinghover) .vjs-progress-control .vjs-progress-holder > div {
+  height: 0.32em;
+  transform: none;
 }
 
 .vjs-progress-control .vjs-sliding .vjs-play-progress:before {

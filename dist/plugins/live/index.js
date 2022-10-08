@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* VERSION: 1.7.0 */
+/* VERSION: 1.7.1 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
@@ -136,6 +136,9 @@
   videojs__default['default'].registerComponent('LiveNotice', LiveNotice);
 
   var Plugin = videojs__default['default'].getPlugin('plugin');
+  var defaults = {
+    dvr: true
+  };
 
   var Live = /*#__PURE__*/function (_Plugin) {
     _inheritsLoose(Live, _Plugin);
@@ -148,6 +151,7 @@
       }
 
       _this = _Plugin.call(this, player, options) || this;
+      _this.options = videojs__default['default'].mergeOptions(defaults, options);
 
       _this.createLiveNotive(player);
 
@@ -172,10 +176,16 @@
     _proto.start = function start(player) {
       var onTimeupdate = this.onTimeUpdate.bind(this);
       player.addClass('vjs-live-streaming');
+
+      if (this.options.dvr) {
+        player.addClass('vjs-live-dvr');
+      }
+
       player.on('timeupdate', onTimeupdate);
       this.on('dispose', function () {
         player.off('timeupdate', onTimeupdate);
         player.removeClass('vjs-live-streaming');
+        player.removeClass('vjs-live-dvr');
         player.removeClass('vjs-live');
       });
     };

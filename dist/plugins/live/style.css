@@ -20,11 +20,21 @@
 }
 
 .vjs-live-notice-spot {
-  font-size: 0.7em;
+  font-size: 0.65em;
   margin-right: 0.4em;
   color: #ccc;
   line-height: 1em;
 }
 .vjs-live-streaming .vjs-live-notice.vjs-at-live-edge .vjs-live-notice-spot {
   color: #e91e63;
+}
+
+.vjs-live:not(.vjs-live-dvr) .vjs-progress-control {
+  pointer-events: none;
+}
+.vjs-live:not(.vjs-live-dvr) .vjs-progress-control .vjs-progress-holder .vjs-play-progress {
+  width: 100% !important;
+}
+.vjs-live:not(.vjs-live-dvr) .vjs-progress-control .vjs-progress-holder .vjs-play-progress:before {
+  display: none;
 }

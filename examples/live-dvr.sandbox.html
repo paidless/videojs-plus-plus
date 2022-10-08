@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="../dist/videojs-plus-plus.css" />
+    <link rel="stylesheet" href="../dist/plugins/live/style.css" />
   </head>
 
   <body>
@@ -17,19 +18,27 @@
           class="vjs-fluid"
           poster="https://vjs.zencdn.net/v/oceans.png"
         >
-          <source src="https://vjs.zencdn.net/v/oceans.mp4" />
+          <!-- <source src="https://vjs.zencdn.net/v/oceans.mp4" /> -->
+          <source src="https://storage.googleapis.com/shaka-live-assets/player-source.mpd" type="application/dash+xml" />
+          <!-- <source src="https://sub2.neetball.net/live/neet.m3u8" type="application/x-mpegURL" /> -->
         </video>
       </div>
     </div>
   </body>
   <script src="https://vjs.zencdn.net/7.6.5/video.js"></script>
   <script src="../dist/videojs-plus-plus.umd.js"></script>
+  <script src="../dist/plugins/live/index.js"></script>
+  <script src="../dist/plugins/autoplay/index.js"></script>
   <script>
     var player = videojs('example-video', {
       // same as videojs config
       aspectRatio: '16:9',
-      mobileView: false,
-      title: 'Title',
+      autoplay: true,
+      muted: true
+    });
+
+    player.live({
+      // dvr: false
     });
   </script>
 </html>
