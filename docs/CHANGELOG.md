@@ -1,16 +1,29 @@
 ## Change Log <!-- {docsify-ignore-all} -->
 
-### 1.7.0
+### 1.7.1
+
+#### Bug Fixes
+
+- Fix title not show
 
 #### Update
 
-- Rename to videojs-plus-plus
+- Improved fullscreen UI
+- Improved menu UI
+- Improved UI on not working hover devices
+- Added live DVR switcher
+
+### 1.7.0
 
 #### Bug Fixes
 
 - Fix progress bar on live mode
 - Fix context menu position
 - Improve UI
+
+#### Update
+
+- Rename to videojs-plus-plus
 
 ### 1.6.9
 
