@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* VERSION: 1.7.2 */
+/* VERSION: 1.7.3 */
 import videojs from 'video.js';
 
 function findChild(parent, name, result) {
@@ -756,9 +756,15 @@ var SettingMenuTemp = /*#__PURE__*/function (_SettingMenu) {
   _inheritsLoose(SettingMenuTemp, _SettingMenu);
 
   function SettingMenuTemp(player) {
-    return _SettingMenu.call(this, player, {
+    var _this3;
+
+    _this3 = _SettingMenu.call(this, player, {
       name: 'SettingMenuTemp'
     }) || this;
+
+    _this3.addClass('vjs-setting-menu-temp');
+
+    return _this3;
   }
 
   return SettingMenuTemp;
