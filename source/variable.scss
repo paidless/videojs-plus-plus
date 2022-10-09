@@ -8,7 +8,7 @@ $menu-max-height: calc(100% - (#{$control-bar-height} + 15px));
 $menu-with-title-max-height: calc(100% - ((#{$control-bar-height} + 15px) + (#{$title-height} + 5px)));
 $moveInTransition: cubic-bezier(0.4, 0, 1, 1);
 $moveOutTransition: cubic-bezier(0, 0, 0.2, 1);
-$primaryColor: #3ea6ff;
+$primaryColor: #2196f3;
 
 @mixin disable-volume-level() {
   .vjs-volume-control {
