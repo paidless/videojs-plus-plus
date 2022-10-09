@@ -105,6 +105,8 @@ class SettingMenuTemp extends SettingMenu {
     super(player, {
       name: 'SettingMenuTemp'
     });
+
+    this.addClass('vjs-setting-menu-temp');
   }
 }
 

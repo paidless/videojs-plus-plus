@@ -14,7 +14,9 @@
 }
 
 .vjs-setting-menu {
-  @include visibility-transition-menu-style('.vjs-lock-showing');
+  &:not(.vjs-setting-menu-temp) {
+    @include visibility-transition-menu-style('.vjs-lock-showing');
+  }
 
   border-radius: 3px;
 
