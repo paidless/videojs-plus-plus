@@ -38,8 +38,8 @@ $small-dimension: 480px;
 
   @media (max-width: $small-dimension) {
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     background: none;
     text-shadow: none;
     box-shadow: none;
