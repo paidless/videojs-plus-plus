@@ -1,5 +1,17 @@
 ## Change Log <!-- {docsify-ignore-all} -->
 
+### 1.7.3
+
+#### Bug Fixes
+
+- Fix menu size on mobile view
+- Fix setting menu size incorrect when mobile view changed
+
+#### Update
+
+- Added primary color
+- Improved UI transition
+
 ### 1.7.2
 
 #### Bug Fixes
