@@ -118,5 +118,10 @@ $bg3: $primaryColor;
     &.vjs-progress-holder {
       @include extendProgressBar();
     }
+    .vjs-mouse-display {
+      .vjs-time-tooltip {
+        display: block;
+      }
+    }
   }
 }
