@@ -87,17 +87,21 @@ $bg3: $primaryColor;
   }
 }
 
-.vjs-workinghover {
-  .vjs-progress-control {
-    &:hover {
-      @include showDotOnProgressBar();
-      .vjs-progress-holder {
-        @include extendProgressBar();
+// Using media query to prevent mobile devices hover stay (fake hover)
+// Ref: https://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
+@media (hover: hover) {
+  .vjs-workinghover {
+    .vjs-progress-control {
+      &:hover {
+        @include showDotOnProgressBar();
+        .vjs-progress-holder {
+          @include extendProgressBar();
+        }
       }
-    }
-    &:hover .vjs-mouse-display {
-      .vjs-time-tooltip {
-        display: block;
+      &:hover .vjs-mouse-display {
+        .vjs-time-tooltip {
+          display: block;
+        }
       }
     }
   }
