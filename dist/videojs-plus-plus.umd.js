@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* VERSION: 1.7.3 */
+/* VERSION: 1.7.4 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
@@ -272,7 +272,60 @@
   videojs__default['default'].registerComponent('ProgressBarPadding', ProgressBarPadding);
   videojs__default['default'].getComponent('seekBar').prototype.options_.children.push('ProgressBarPadding');
 
+  /**
+   * Keep a number between a min and a max value
+   * 
+   * https://github.com/videojs/video.js/blob/4238f5c1d88890547153e7e1de7bd0d1d8e0b236/src/js/utils/clamp.js#L1-L19
+   *
+   * @param {number} number
+   *        The number to clamp
+   *
+   * @param {number} min
+   *        The minimum value
+   * @param {number} max
+   *        The maximum value
+   *
+   * @return {number}
+   *         the clamped number
+   */
+  var clamp = function clamp(number, min, max) {
+    number = Number(number);
+    return Math.min(max, Math.max(min, isNaN(number) ? min : number));
+  };
+
+  var Dom$1 = videojs__default['default'].dom;
   var SeekBar = videojs__default['default'].getComponent('SeekBar');
+  /**
+   * Update time display position
+   * 
+   * Call this function with:
+   *   updateTimeDisplay.apply(this, arguments);
+   */
+
+  var updateTimeDisplay = function updateTimeDisplay(event) {
+    // https://github.com/videojs/video.js/blob/4238f5c1d88890547153e7e1de7bd0d1d8e0b236/src/js/control-bar/progress-control/progress-control.js#L51-L91
+    var mouseTimeDisplay = this.getChild('mouseTimeDisplay');
+    var seekBarEl = this.el();
+    var seekBarRect = Dom$1.getBoundingClientRect(seekBarEl);
+    var seekBarPoint = Dom$1.getPointerPosition(seekBarEl, event).x; // The default skin has a gap on either side of the `SeekBar` (this). This means
+    // that it's possible to trigger this behavior outside the boundaries of
+    // the `SeekBar` (this). This ensures we stay within it at all times.
+
+    seekBarPoint = clamp(seekBarPoint, 0, 1);
+
+    if (mouseTimeDisplay) {
+      // https://github.com/videojs/video.js/blob/4238f5c1d88890547153e7e1de7bd0d1d8e0b236/src/js/control-bar/progress-control/mouse-time-display.js#L45-L63
+      mouseTimeDisplay.update(seekBarRect, seekBarPoint);
+    }
+  }; // Always added MouseTimeDisplay tooltips to a player
+  // Ref: https://github.com/videojs/video.js/blob/df927de320998e161272d52235df85982ae86c6f/src/js/control-bar/progress-control/seek-bar.js#L509-L512
+
+
+  if (!SeekBar.prototype.options_.children.includes('mouseTimeDisplay')) {
+    SeekBar.prototype.options_.children.splice(1, 0, 'mouseTimeDisplay');
+  } // getPercent and handleMouseMove patches from:
+  //   https://github.com/videojs/video.js/issues/4460#issuecomment-312861657
+
 
   SeekBar.prototype.getPercent = function getPercent() {
     var time = this.player_.currentTime();
@@ -281,7 +334,8 @@
   };
 
   SeekBar.prototype.handleMouseMove = function handleMouseMove(event) {
-    var player = this.player_; // if (!videojs.dom.isSingleLeftClick(event) || isAdPlaying(player)) {
+    var player = this.player_;
+    updateTimeDisplay.apply(this, arguments); // if (!videojs.dom.isSingleLeftClick(event) || isAdPlaying(player)) {
 
     if (!videojs__default['default'].dom.isSingleLeftClick(event)) {
       return;
