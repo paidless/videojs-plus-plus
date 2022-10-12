@@ -1,5 +1,11 @@
 ## Change Log <!-- {docsify-ignore-all} -->
 
+### 1.7.4
+
+### Update
+
+- Showing MouseTimeDisplay when SeekBar sliding
+
 ### 1.7.3
 
 #### Bug Fixes
