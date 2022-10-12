@@ -1,5 +1,11 @@
 ## Change Log <!-- {docsify-ignore-all} -->
 
+### 1.7.6
+
+#### Update
+
+- Supported Video.js 7.20.3
+
 ### 1.7.5
 
 #### Bug Fixes

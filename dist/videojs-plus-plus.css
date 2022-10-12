@@ -884,6 +884,9 @@ body.vjs-full-window {
   margin-left: -1px;
   transition: width 0.3s, opacity 0.3s, margin 0.3s;
 }
+.video-js .vjs-volume-panel .vjs-volume-control .vjs-mouse-display {
+  display: none;
+}
 .video-js .vjs-volume-panel:hover .vjs-volume-control, .video-js .vjs-volume-panel:active .vjs-volume-control, .video-js .vjs-volume-panel:focus .vjs-volume-control, .video-js .vjs-volume-panel .vjs-volume-control:hover, .video-js .vjs-volume-panel .vjs-volume-control:active, .video-js .vjs-volume-panel .vjs-mute-control:hover ~ .vjs-volume-control, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active {
   visibility: visible;
   opacity: 1;

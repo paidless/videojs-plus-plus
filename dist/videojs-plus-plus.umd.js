@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* VERSION: 1.7.5 */
+/* VERSION: 1.7.6 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
@@ -901,7 +901,7 @@
 
       _this = _SettingMenuItem.call(this, player, options) || this;
 
-      _this.addChild('Component', {}, 0);
+      _this.el_.insertAdjacentElement('afterbegin', videojs__default['default'].dom.createEl('div'));
 
       _this.addClass('vjs-settings-sub-menu-item');
 
@@ -932,7 +932,7 @@
 
       Object.assign(_assertThisInitialized(_this), options);
 
-      _this.addChild('Component', {}, 0);
+      _this.el_.insertAdjacentElement('afterbegin', videojs__default['default'].dom.createEl('div'));
 
       _this.addClass('vjs-settings-sub-menu-item');
 

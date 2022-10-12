@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* VERSION: 1.7.5 */
+/* VERSION: 1.7.6 */
 import videojs from 'video.js';
 
 function findChild(parent, name, result) {
@@ -893,7 +893,7 @@ var SettingSubOptionTitle = /*#__PURE__*/function (_SettingMenuItem) {
 
     _this = _SettingMenuItem.call(this, player, options) || this;
 
-    _this.addChild('Component', {}, 0);
+    _this.el_.insertAdjacentElement('afterbegin', videojs.dom.createEl('div'));
 
     _this.addClass('vjs-settings-sub-menu-item');
 
@@ -924,7 +924,7 @@ var SettingSubOptionItem = /*#__PURE__*/function (_SettingMenuItem) {
 
     Object.assign(_assertThisInitialized(_this), options);
 
-    _this.addChild('Component', {}, 0);
+    _this.el_.insertAdjacentElement('afterbegin', videojs.dom.createEl('div'));
 
     _this.addClass('vjs-settings-sub-menu-item');
 
