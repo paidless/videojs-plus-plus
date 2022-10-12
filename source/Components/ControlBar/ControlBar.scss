@@ -202,6 +202,9 @@ $dotSize: 0.8125em;
     height: $control-bar-height;
     margin-left: -1px;
     transition: width #{$transition-duration}, opacity #{$transition-duration}, margin #{$transition-duration};
+    .vjs-mouse-display {
+      display: none;
+    }
   }
 
   &:hover .vjs-volume-control,

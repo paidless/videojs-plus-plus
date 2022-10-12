@@ -9,7 +9,7 @@ A plugin for switch video quality by HLS playlist.
 Include [videojs-contrib-quality-levels](https://github.com/videojs/videojs-contrib-quality-levels) and the plugin js, the quality menu item will be setup automatically.
 
 ```html inject keep
-<script src="https://cdn.jsdelivr.net/npm/videojs-contrib-quality-levels@2.0.9/dist/videojs-contrib-quality-levels.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/videojs-contrib-quality-levels@2.2.0/dist/videojs-contrib-quality-levels.js"></script>
 <script src="../dist/plugins/quality-hls/index.js"></script>
 ```
 
