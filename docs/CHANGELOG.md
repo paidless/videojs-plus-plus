@@ -1,8 +1,14 @@
 ## Change Log <!-- {docsify-ignore-all} -->
 
+### 1.7.5
+
+#### Bug Fixes
+
+- Prevent mobile devices hover stay (fake hover)
+
 ### 1.7.4
 
-### Update
+#### Update
 
 - Showing MouseTimeDisplay when SeekBar sliding
 
