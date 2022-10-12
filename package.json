@@ -1,6 +1,6 @@
 {
   "name": "videojs-plus-plus",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "description": "An extension and skin for video.js",
   "main": "dist/videojs-plus-plus.umd.js",
   "module": "dist/videojs-plus-plus.es5.js",
