@@ -1426,21 +1426,22 @@ body.vjs-full-window {
   top: -2.5em;
 }
 
-.vjs-workinghover .vjs-progress-control:hover .vjs-play-progress:before {
-  opacity: 1;
-  transform: none;
-  transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1), opacity 0.1s cubic-bezier(0, 0, 0.2, 1);
-}
-.vjs-workinghover .vjs-progress-control:hover .vjs-progress-holder:before,
+@media (hover: hover) {
+  .vjs-workinghover .vjs-progress-control:hover .vjs-play-progress:before {
+    opacity: 1;
+    transform: none;
+    transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1), opacity 0.1s cubic-bezier(0, 0, 0.2, 1);
+  }
+  .vjs-workinghover .vjs-progress-control:hover .vjs-progress-holder:before,
 .vjs-workinghover .vjs-progress-control:hover .vjs-progress-holder > div {
-  height: 0.32em;
-  transform: none;
-  transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+    height: 0.32em;
+    transform: none;
+    transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+  }
+  .vjs-workinghover .vjs-progress-control:hover .vjs-mouse-display .vjs-time-tooltip {
+    display: block;
+  }
 }
-.vjs-workinghover .vjs-progress-control:hover .vjs-mouse-display .vjs-time-tooltip {
-  display: block;
-}
-
 .video-js:not(.vjs-workinghover) .vjs-progress-control .vjs-play-progress:before {
   opacity: 1;
   transform: none;

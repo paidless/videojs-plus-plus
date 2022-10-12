@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* VERSION: 1.7.4 */
+/* VERSION: 1.7.5 */
 import videojs from 'video.js';
 
 function _inheritsLoose(subClass, superClass) {
