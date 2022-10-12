@@ -6,7 +6,7 @@ class SettingSubOptionTitle extends SettingMenuItem {
   constructor(player, options) {
     super(player, options);
 
-    this.addChild('Component', {}, 0);
+    this.el_.insertAdjacentElement('afterbegin', videojs.dom.createEl('div'));
     this.addClass('vjs-settings-sub-menu-item');
     this.addClass('vjs-settings-sub-menu-title');
   }
