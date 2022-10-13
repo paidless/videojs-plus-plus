@@ -1,4 +1,5 @@
 @import '../../variable.scss';
+@import '../../../node_modules/videojs-plus-font/scss/videojs-icons.scss';
 
 body.vjs-full-window {
   padding: 0;
@@ -15,5 +16,13 @@ body.vjs-full-window {
     bottom: 0;
     right: 0;
     z-index: 100000;
+
+    .vjs-fullwindow-control .vjs-icon-placeholder {
+      @extend .vjs-icon-fullscreen-exit;
+    }
   }
+}
+
+.video-js .vjs-fullwindow-control .vjs-icon-placeholder {
+  @extend .vjs-icon-square;
 }

@@ -42,5 +42,13 @@
         player.isFullscreen()
       );
     });
+
+    player.on('fullwindowchange', function (event) {
+      console.log(
+        '[fullwindowchange]',
+        'is fullwindow:',
+        !!player.isFullWindow
+      );
+    });
   </script>
 </html>

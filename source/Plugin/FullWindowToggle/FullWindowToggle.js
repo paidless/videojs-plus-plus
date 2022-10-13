@@ -1,38 +1,102 @@
 import videojs from 'video.js';
-
+import { silencePromise } from '../../Utils/Promise';
 import './FullWindowToggle.scss';
 
-class FullWindowToggle extends videojs.getComponent('FullscreenToggle') {
+const Button = videojs.getComponent('Button');
+
+class FullWindowToggle extends Button {
+
+  /**
+   * Create a Full window toggle button instance.
+   *
+   * @param     {Player} player
+   *            A Video.js Player instance.
+   *
+   * @param     {Object} [options]
+   *            An optional options object.
+   */
   constructor(player, options) {
     super(player, options);
 
-    player.requestFullscreen = player.enterFullWindow.bind(player);
-    player.enterFullScreen = player.enterFullWindow.bind(player);
-    player.exitFullscreen = player.exitFullWindow.bind(player);
+    this.updateButtonState();
 
-    player.isFullscreen = () => {
-      return !!player.isFullWindow;
+    // Patches exitFullscreenHelper
+    // Code from: https://github.com/paidless/videojs-yt-style/blob/7b6f1620b5c925d4a4a602df83b0b58d1b0d5843/src/js/features/fullwindow-toggle-manager.js#L11-L33
+    // Ref: https://github.com/videojs/video.js/blob/9ca2e8764a2cced1efdad730b8c66c4b42a33f7f/src/js/player.js#L2976-L2992
+    player.exitFullscreenHelper_ = function exitFullscreenHelper_() {
+      if (this.isFullWindow) {
+        return this.exitFullWindow();
+      }
+  
+      if (this.fsApi_.requestFullscreen) {
+        const promise = document[this.fsApi_.exitFullscreen]();
+  
+        if (promise) {
+          // we're splitting the promise here, so, we want to catch the
+          // potential error so that this chain doesn't have unhandled errors
+          silencePromise(promise.then(function() {
+            return this.isFullscreen(false);
+          }));
+        }
+  
+        return promise;
+      } else if (this.tech_.supportsFullScreen() && !this.options_.preferFullWindow === true) {
+        this.techCall_('exitFullScreen');
+      } else {
+        this.exitFullWindow();
+      }
     };
 
-    player.on(['enterFullWindow', 'exitFullWindow'], function () {
-      player.toggleFullscreenClass_();
-      player.trigger('fullscreenchange');
+    window.db = this;
+
+    const events = ['enterFullWindow', 'exitFullWindow'];
+    const handleFullWindowChange = () => {
+      this.updateButtonState.call(this);
+      player.trigger('fullwindowchange');
+    }
+
+    player.on(events, handleFullWindowChange);
+    player.on('dispose', () => {
+      player.off(events, handleFullWindowChange);
     });
   }
 
-  handleClick() {
-    if (!this.player_.isFullWindow) {
-      this.player_.enterFullScreen();
-    } else {
-      this.player_.exitFullscreen();
-    }
+  /**
+   * Set button css class.
+   *
+   * @return    {string}
+   *            Return css class.
+   */
+  buildCSSClass() {
+    return `vjs-fullwindow-control ${super.buildCSSClass()}`;
   }
 
-  // Since `FullWindowToggle` are extends from `FullscreenToggle`,
-  // disable function will be called if the browser does not support fullscreen API
-  // However, `FullWindowToggle` is assumed support in all platform. So the function should be override
-  disable(force) {
-    force && super.disable();
+  /**
+   * Button click handle.
+   *
+   * 
+   * @param     {Object} [event]
+   *            Event data.
+   */
+  handleClick(event) {
+    if (!this.player_.isFullWindow) {
+      this.player_.enterFullWindow();
+    } else {
+      this.player_.exitFullWindow();
+    }
+
+    this.updateButtonState();
+  }
+
+  /**
+   * Button state update.
+   */
+  updateButtonState() {
+    if (!this.player_.isFullWindow) {
+      this.controlText('Fullwindow');
+    } else {
+      this.controlText('Exit Fullwindow');
+    }
   }
 }
 
@@ -42,4 +106,23 @@ const controlBarChildren = videojs.getComponent('ControlBar').prototype.options_
   .children;
 const fullScreenButtonIndex = controlBarChildren.indexOf('FullscreenToggle');
 
-controlBarChildren[fullScreenButtonIndex] = 'FullWindowToggle';
+controlBarChildren.splice(fullScreenButtonIndex, 0, 'FullWindowToggle');
+
+videojs.hook('setup', vjsPlayer => {
+  const fullscreenToggle = vjsPlayer.findChild('FullscreenToggle')[0].component;
+  const fullWindowToggle = vjsPlayer.findChild('FullWindowToggle')[0].component;
+
+  const handleFullWindowChange = () => {
+    if (!vjsPlayer.isFullWindow) {
+      fullWindowToggle.show();
+    } else {
+      fullWindowToggle.hide();
+    }
+    fullscreenToggle.handleFullscreenChange();
+  }
+
+  vjsPlayer.on('fullwindowchange', handleFullWindowChange);
+  vjsPlayer.on('dispose', () => {
+    vjsPlayer.off('fullwindowchange', handleFullWindowChange);
+  });
+});
