@@ -1,5 +1,19 @@
 ## Change Log <!-- {docsify-ignore-all} -->
 
+### 1.7.7
+
+#### Bug Fixes
+
+- Fix invalidated set icon method on playlist button
+- Fix style of disable volume level
+- Removed same import
+
+#### Update
+
+- Added ExtraFullWindowToggle
+- Improved menu UI
+- Update caniuse-lite to new version
+
 ### 1.7.6
 
 #### Update
