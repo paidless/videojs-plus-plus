@@ -6,6 +6,8 @@ class PrevNextButton extends Button {
   constructor(player, options) {
     super(player, options);
 
+    this.el_.querySelector('.vjs-icon-placeholder').classList.add(this.options_.icon);
+
     this.updateVisibility();
     this.controlText(options.controlText);
 
@@ -30,7 +32,7 @@ class PrevNextButton extends Button {
     return super.createEl(
       tag,
       {
-        innerHTML: `<span aria-hidden="true" class="vjs-icon-placeholder ${this.options_.icon}"></span>`
+        // innerHTML: `<span aria-hidden="true" class="vjs-icon-placeholder ${this.options_.icon}"></span>`
       },
       attributes
     );
