@@ -112,17 +112,21 @@ videojs.hook('setup', vjsPlayer => {
   const fullscreenToggle = vjsPlayer.findChild('FullscreenToggle')[0].component;
   const fullWindowToggle = vjsPlayer.findChild('FullWindowToggle')[0].component;
 
-  const handleFullWindowChange = () => {
-    if (!vjsPlayer.isFullWindow) {
+  const handleFullAnyChange = (event) => {
+    if (!vjsPlayer.isFullWindow && !vjsPlayer.isFullscreen()) {
       fullWindowToggle.show();
     } else {
       fullWindowToggle.hide();
     }
-    fullscreenToggle.handleFullscreenChange();
+    if (event.type === 'fullwindowchange') {
+      fullscreenToggle.handleFullscreenChange();
+    }
   }
 
-  vjsPlayer.on('fullwindowchange', handleFullWindowChange);
+  const events = ['fullwindowchange', 'fullscreenchange'];
+
+  vjsPlayer.on(events, handleFullAnyChange);
   vjsPlayer.on('dispose', () => {
-    vjsPlayer.off('fullwindowchange', handleFullWindowChange);
+    vjsPlayer.off(events, handleFullAnyChange);
   });
 });
