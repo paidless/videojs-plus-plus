@@ -47,16 +47,38 @@ class FullWindowToggle extends Button {
       }
     };
 
-    const events = ['enterFullWindow', 'exitFullWindow'];
-    const handleFullWindowChange = () => {
+    const events = ['enterFullWindow', 'exitFullWindow', 'fullscreenchange'];
+    const handleFullWindowChange = (event) => {
       this.updateButtonState.call(this);
-      player.trigger('fullwindowchange');
+
+      if (!this.player_.isFullscreen()) {
+        this.show();
+      } else {
+        this.hide();
+      }
+
+      if (event.type !== 'fullscreenchange') {
+        const fullscreenToggle = this.getFullscreenToggle();
+        if (fullscreenToggle) {
+          fullscreenToggle.handleFullscreenChange();
+        }
+
+        player.trigger('fullwindowchange');
+      }
     }
 
     player.on(events, handleFullWindowChange);
     player.on('dispose', () => {
       player.off(events, handleFullWindowChange);
     });
+  }
+
+  getFullscreenToggle() {
+    const findComponents = this.player_.findChild('fullscreenToggle');
+
+    if (findComponents.length > 0) {
+      return findComponents[0].component;
+    }
   }
 
   /**
@@ -105,26 +127,3 @@ const controlBarChildren = videojs.getComponent('ControlBar').prototype.options_
 const fullScreenButtonIndex = controlBarChildren.indexOf('FullscreenToggle');
 
 controlBarChildren.splice(fullScreenButtonIndex, 0, 'FullWindowToggle');
-
-videojs.hook('setup', vjsPlayer => {
-  const fullscreenToggle = vjsPlayer.findChild('FullscreenToggle')[0].component;
-  const fullWindowToggle = vjsPlayer.findChild('FullWindowToggle')[0].component;
-
-  const handleFullAnyChange = (event) => {
-    if (!vjsPlayer.isFullWindow && !vjsPlayer.isFullscreen()) {
-      fullWindowToggle.show();
-    } else {
-      fullWindowToggle.hide();
-    }
-    if (event.type === 'fullwindowchange') {
-      fullscreenToggle.handleFullscreenChange();
-    }
-  }
-
-  const events = ['fullwindowchange', 'fullscreenchange'];
-
-  vjsPlayer.on(events, handleFullAnyChange);
-  vjsPlayer.on('dispose', () => {
-    vjsPlayer.off(events, handleFullAnyChange);
-  });
-});
