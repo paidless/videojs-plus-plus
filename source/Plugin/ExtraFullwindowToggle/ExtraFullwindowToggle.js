@@ -1,6 +1,6 @@
 import videojs from 'video.js';
 import { silencePromise } from '../../Utils/Promise';
-import './ExtraFullWindowToggle.scss';
+import './ExtraFullwindowToggle.scss';
 
 const Button = videojs.getComponent('Button');
 

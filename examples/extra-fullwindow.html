@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="../dist/plugins/full-window-toggle/style.css"
+      href="../dist/plugins/extra-fullwindow-toggle/style.css"
     />
   </head>
 
@@ -28,7 +28,7 @@
   </body>
   <script src="https://vjs.zencdn.net/7.20.3/video.js"></script>
   <script src="../dist/videojs-plus-plus.umd.js"></script>
-  <script src="../dist/plugins/full-window-toggle/index.js"></script>
+  <script src="../dist/plugins/extra-fullwindow-toggle/index.js"></script>
   <script>
     var player = videojs('example-video', {
       // same as videojs config
@@ -40,6 +40,14 @@
         '[fullscreenchange]',
         'is fullscreen:',
         player.isFullscreen()
+      );
+    });
+
+    player.on('fullwindowchange', function (event) {
+      console.log(
+        '[fullwindowchange]',
+        'is fullwindow:',
+        !!player.isFullWindow
       );
     });
   </script>
