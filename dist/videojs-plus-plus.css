@@ -426,7 +426,7 @@
 }
 
 .vjs-menu .vjs-menu-content {
-  padding: 0.3em 0;
+  padding: 0.6em 0;
   margin: 0;
   font-size: 0.875em;
   color: #fff;
@@ -1190,6 +1190,7 @@ body.vjs-full-window {
   background-color: transparent !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   padding: 0.6em 1em;
+  padding-bottom: 1.2em;
   margin-bottom: 0.3em;
 }
 .vjs-menu-item.vjs-settings-sub-menu-title:after {
@@ -1365,6 +1366,7 @@ body.vjs-full-window {
   display: none;
 }
 .vjs-mobile-view.video-js .vjs-volume-panel {
+  margin-right: 0 !important;
   min-width: 2.25em !important;
 }
 

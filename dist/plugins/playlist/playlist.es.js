@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* VERSION: 1.7.6 */
+/* VERSION: 1.7.7 */
 import videojs from 'video.js';
 
 function _extends() {
@@ -337,6 +337,8 @@ var PrevNextButton = /*#__PURE__*/function (_Button) {
 
     _this = _Button.call(this, player, options) || this;
 
+    _this.el_.querySelector('.vjs-icon-placeholder').classList.add(_this.options_.icon);
+
     _this.updateVisibility();
 
     _this.controlText(options.controlText);
@@ -362,8 +364,7 @@ var PrevNextButton = /*#__PURE__*/function (_Button) {
   };
 
   _proto.createEl = function createEl(tag, _, attributes) {
-    return _Button.prototype.createEl.call(this, tag, {
-      innerHTML: "<span aria-hidden=\"true\" class=\"vjs-icon-placeholder " + this.options_.icon + "\"></span>"
+    return _Button.prototype.createEl.call(this, tag, {// innerHTML: `<span aria-hidden="true" class="vjs-icon-placeholder ${this.options_.icon}"></span>`
     }, attributes);
   };
 

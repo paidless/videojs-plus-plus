@@ -31,6 +31,7 @@
   display: none;
 }
 .vjs-pip-player .vjs-volume-panel {
+  margin-right: 0 !important;
   min-width: 2.25em !important;
 }
 .vjs-pip-player .vjs-pip-button,
