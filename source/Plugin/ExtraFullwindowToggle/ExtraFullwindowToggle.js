@@ -47,8 +47,6 @@ class FullWindowToggle extends Button {
       }
     };
 
-    window.db = this;
-
     const events = ['enterFullWindow', 'exitFullWindow'];
     const handleFullWindowChange = () => {
       this.updateButtonState.call(this);
