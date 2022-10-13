@@ -1,6 +1,6 @@
 ## Live Streaming UI <!-- {docsify-ignore-all} -->
 
-A style plugin that create a live streaming notice on the control bar and hide the progress bar
+Implement DVR ([Live UI](https://blog.videojs.com/video-js-7-4/#Live-UI)).
 
 ### Usage
 
@@ -17,7 +17,7 @@ A style plugin that create a live streaming notice on the control bar and hide t
   class="vjs-fluid"
   poster="https://vjs.zencdn.net/v/oceans.png"
 >
-  <source src="https://vjs.zencdn.net/v/oceans.mp4" />
+  <source src="https://storage.googleapis.com/shaka-live-assets/player-source.mpd" type="application/dash+xml" />
 </video>
 ```
 
@@ -27,6 +27,16 @@ const player = videojs('example-video', {
 });
 
 player.live();
+```
+
+#### Disable Progress Bar
+
+Disable the user to use the progress bar to seek the video.
+
+```js
+player.live({
+  dvr: false
+});
 ```
 
 ### API
