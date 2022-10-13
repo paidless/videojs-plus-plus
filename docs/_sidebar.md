@@ -10,6 +10,7 @@
   - [Autoplay](./plugins/autoplay.md)
   - [Electron Fullscreen Toggle](./plugins/electron-fullscreen-toggle.md)
   - [Full Window Toggle](./plugins/full-window-toggle.md)
+  - [Extra Fullwindow Toggle](./plugins/extra-fullwindow-toggle.md)
   - [Live Streaming UI](./plugins/live.md)
   - [Playlist](./plugins/playlist.md)
   - [Quality](./plugins/quality.md)

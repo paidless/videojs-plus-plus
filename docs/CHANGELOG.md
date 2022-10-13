@@ -1,5 +1,12 @@
 ## Change Log <!-- {docsify-ignore-all} -->
 
+### 1.7.8
+
+#### Bug Fixes
+
+- Removed the debug code
+- ExtraFullWindowToggle remove hook dependency
+
 ### 1.7.7
 
 #### Bug Fixes

@@ -102,13 +102,26 @@ var FullWindowToggle = /*#__PURE__*/function (_Button) {
       }
     };
 
-    window.db = _assertThisInitialized(_this);
-    var events = ['enterFullWindow', 'exitFullWindow'];
+    var events = ['enterFullWindow', 'exitFullWindow', 'fullscreenchange'];
 
-    var handleFullWindowChange = function handleFullWindowChange() {
+    var handleFullWindowChange = function handleFullWindowChange(event) {
       _this.updateButtonState.call(_assertThisInitialized(_this));
 
-      player.trigger('fullwindowchange');
+      if (!_this.player_.isFullscreen()) {
+        _this.show();
+      } else {
+        _this.hide();
+      }
+
+      if (event.type !== 'fullscreenchange') {
+        var fullscreenToggle = _this.getFullscreenToggle();
+
+        if (fullscreenToggle) {
+          fullscreenToggle.handleFullscreenChange();
+        }
+
+        player.trigger('fullwindowchange');
+      }
     };
 
     player.on(events, handleFullWindowChange);
@@ -117,15 +130,23 @@ var FullWindowToggle = /*#__PURE__*/function (_Button) {
     });
     return _this;
   }
+
+  var _proto = FullWindowToggle.prototype;
+
+  _proto.getFullscreenToggle = function getFullscreenToggle() {
+    var findComponents = this.player_.findChild('fullscreenToggle');
+
+    if (findComponents.length > 0) {
+      return findComponents[0].component;
+    }
+  }
   /**
    * Set button css class.
    *
    * @return    {string}
    *            Return css class.
    */
-
-
-  var _proto = FullWindowToggle.prototype;
+  ;
 
   _proto.buildCSSClass = function buildCSSClass() {
     return "vjs-fullwindow-control " + _Button.prototype.buildCSSClass.call(this);
@@ -168,26 +189,4 @@ videojs.registerComponent('FullWindowToggle', FullWindowToggle);
 var controlBarChildren = videojs.getComponent('ControlBar').prototype.options_.children;
 var fullScreenButtonIndex = controlBarChildren.indexOf('FullscreenToggle');
 controlBarChildren.splice(fullScreenButtonIndex, 0, 'FullWindowToggle');
-videojs.hook('setup', function (vjsPlayer) {
-  var fullscreenToggle = vjsPlayer.findChild('FullscreenToggle')[0].component;
-  var fullWindowToggle = vjsPlayer.findChild('FullWindowToggle')[0].component;
-
-  var handleFullAnyChange = function handleFullAnyChange(event) {
-    if (!vjsPlayer.isFullWindow && !vjsPlayer.isFullscreen()) {
-      fullWindowToggle.show();
-    } else {
-      fullWindowToggle.hide();
-    }
-
-    if (event.type === 'fullwindowchange') {
-      fullscreenToggle.handleFullscreenChange();
-    }
-  };
-
-  var events = ['fullwindowchange', 'fullscreenchange'];
-  vjsPlayer.on(events, handleFullAnyChange);
-  vjsPlayer.on('dispose', function () {
-    vjsPlayer.off(events, handleFullAnyChange);
-  });
-});
 //# sourceMappingURL=extra-fullwindow-toggle.es.js.map
