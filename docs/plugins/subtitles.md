@@ -18,7 +18,9 @@ Currently, only support text track kind `subtitles`, not sure `caption` should a
   id="example-video"
   class="vjs-fluid"
   poster="https://vjs.zencdn.net/v/oceans.png"
-></video>
+>
+  <source src="https://vjs.zencdn.net/v/oceans.mp4">
+</video>
 ```
 
 ```js run
