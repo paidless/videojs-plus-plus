@@ -10,9 +10,19 @@ This class will be added if the player initializes at screen smaller or equal 48
 
 ### Disable mobile view
 
-```js
-const player = videojs("example-video", {
+```html inject
+<video
+  id="example-video"
+  class="vjs-fluid"
+  poster="https://vjs.zencdn.net/v/oceans.png"
+>
+  <source src="https://vjs.zencdn.net/v/oceans.mp4" />
+</video>
+```
+
+```js run
+const player = window.player = videojs('example-video', {
   // ...
-  mobileView: false; // highlight-line
+  mobileView: false, // highlight-line
 })
 ```
