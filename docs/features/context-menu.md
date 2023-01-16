@@ -29,7 +29,7 @@ class ContextMenuCopyURL extends ContextMenuItem /* highlight-line */ {
   }
 }
 
-const player = videojs('example-video', {
+const player = window.player = videojs('example-video', {
   aspectRatio: '16:9',
   muted: true
 });

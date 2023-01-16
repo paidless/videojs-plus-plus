@@ -25,7 +25,7 @@ If your video dynamically changes with URL parameters and the new video source n
 ```
 
 ```js run
-const player = videojs('example-video', {
+const player = window.player = videojs('example-video', {
   aspectRatio: '16:9',
   muted: true,
   autoplay: true

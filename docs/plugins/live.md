@@ -22,7 +22,7 @@ Implement DVR ([Live UI](https://blog.videojs.com/video-js-7-4/#Live-UI)).
 ```
 
 ```js run
-const player = videojs('example-video', {
+const player = window.player = videojs('example-video', {
   muted: true
 });
 

@@ -70,7 +70,7 @@ const playList = [
   }
 ];
 
-const player = videojs('example-video', {
+const player = window.player = videojs('example-video', {
   autoplay: true,
   muted: true,
   playlist: playList // highlight-line
