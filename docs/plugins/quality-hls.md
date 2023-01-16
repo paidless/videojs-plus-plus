@@ -25,7 +25,7 @@ Include [videojs-contrib-quality-levels](https://github.com/videojs/videojs-cont
 ```
 
 ```js run
-const player = videojs('example-video', { muted: true });
+const player = window.player = videojs('example-video', { muted: true });
 
 player.one('loadedmetadata', function () {
   player.findChild('SettingMenuButton')[0].component.handleClick();

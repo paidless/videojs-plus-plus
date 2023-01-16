@@ -43,7 +43,7 @@ const qualities = [
 ];
 
 // set quality in options
-const player = videojs('example-video', {
+const player = window.player = videojs('example-video', {
   qualities // highlight-line
 });
 

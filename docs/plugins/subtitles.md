@@ -40,7 +40,7 @@ const subtitles = [
   }
 ];
 
-const player = videojs('example-video', {
+const player = window.player = videojs('example-video', {
   subtitles // highlight-line
 });
 

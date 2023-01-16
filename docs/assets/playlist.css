@@ -77,9 +77,15 @@
   width: 50%;
   float: left;
   padding: 10px 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 640px) {
+  .container {
+    flex-direction: column;
+  }
+
   .video-container {
     width: 100%;
     padding-bottom: 56.25%;
