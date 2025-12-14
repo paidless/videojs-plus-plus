@@ -61,7 +61,7 @@
     "sass": "^1.32.8",
     "video.js": "^7.20.3",
     "videojs-contrib-quality-levels": "^2.2.0",
-    "videojs-plus-font": "Pong420/font#af50d0e"
+    "videojs-plus-font": "paidless/videojs-plus-plus-font#af50d0e"
   },
   "dependencies": {}
 }

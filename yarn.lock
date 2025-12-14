@@ -4848,9 +4848,9 @@ videojs-font@3.2.0:
   resolved "https://registry.yarnpkg.com/videojs-font/-/videojs-font-3.2.0.tgz#212c9d3f4e4ec3fa7345167d64316add35e92232"
   integrity sha512-g8vHMKK2/JGorSfqAZQUmYYNnXmfec4MLhwtEFS+mMs2IDY398GLysy6BH6K+aS1KMNu/xWZ8Sue/X/mdQPliA==
 
-videojs-plus-font@Pong420/font#af50d0e:
+videojs-plus-font@paidless/videojs-plus-plus-font#af50d0e:
   version "3.1.0"
-  resolved "https://codeload.github.com/Pong420/font/tar.gz/af50d0ec9e9a604d0ae37043d6d1d9678e62314c"
+  resolved "https://codeload.github.com/paidless/videojs-plus-plus-font/tar.gz/af50d0ec9e9a604d0ae37043d6d1d9678e62314c"
 
 videojs-vtt.js@^0.15.3:
   version "0.15.3"
