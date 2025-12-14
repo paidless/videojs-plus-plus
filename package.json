@@ -56,7 +56,7 @@
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "sass": "^1.32.8",
     "video.js": "^7.20.3",
