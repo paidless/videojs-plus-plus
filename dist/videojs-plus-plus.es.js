@@ -863,8 +863,7 @@ var SettingMenu = /*#__PURE__*/function (_Menu) {
     var newAnimations = Array.from(newMenuContent.children).map(function (e) {
       return e.animate(animations[direction]["new"], {
         duration: 250,
-        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-        fill: 'forwards'
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
       });
     });
     return Promise.all(newAnimations.map(function (a) {
