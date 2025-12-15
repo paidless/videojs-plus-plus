@@ -23,17 +23,21 @@
 .vjs-context-menu-item {
   display: flex;
   align-items: center;
+  min-width: 12em;
+
   span {
     display: block;
   }
 
   .vjs-menu-item-text {
+    flex-grow: 1;
+    margin-right: 0.5em;
     margin-left: 0.5em;
   }
 
   &:after {
-    margin-right: 0;
-    margin-left: auto;
+    margin-right: .5em;
+    margin-left: .5em;
   }
 }
 
