@@ -124,6 +124,8 @@ class SettingMenu extends Menu {
 
     this.el().appendChild(clonedMenuContent); // DOM operation
 
+    this.addClass('vjs-setting-menu-animating');
+
     const oldAnimations = Array.from(clonedMenuContent.children).map(e =>
       e.animate(animations[direction].old, {
         duration: 200, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards'
@@ -146,7 +148,9 @@ class SettingMenu extends Menu {
       })
     );
 
-    return Promise.all(newAnimations.map(a => a.finished));
+    Promise.all(newAnimations.map(a => a.finished)).then(() => {
+      this.removeClass('vjs-setting-menu-animating');
+    });
   }
 
   removeStyle() {
