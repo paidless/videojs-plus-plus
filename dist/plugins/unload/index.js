@@ -4,7 +4,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.videojs));
-}(this, (function (videojs) { 'use strict';
+})(this, (function (videojs) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -15,7 +15,7 @@
   function middleware(player) {
     return {
       callPlay: function callPlay() {
-        return unloaded && videojs__default['default'].middleware.TERMINATOR;
+        return unloaded && videojs__default["default"].middleware.TERMINATOR;
       }
     };
   }
@@ -41,8 +41,8 @@
     }
   }
 
-  videojs__default['default'].use('*', middleware);
-  videojs__default['default'].registerPlugin('unload', unload);
+  videojs__default["default"].use('*', middleware);
+  videojs__default["default"].registerPlugin('unload', unload);
 
-})));
+}));
 //# sourceMappingURL=index.js.map

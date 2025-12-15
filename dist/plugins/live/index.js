@@ -4,7 +4,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.videojs));
-}(this, (function (videojs) { 'use strict';
+})(this, (function (videojs) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -26,7 +26,7 @@
     return _setPrototypeOf(o, p);
   }
 
-  var ClickableComponent = videojs__default['default'].getComponent('ClickableComponent');
+  var ClickableComponent = videojs__default["default"].getComponent('ClickableComponent');
   /**
    * Displays the live indicator when duration is Infinity.
    * 
@@ -77,7 +77,7 @@
     var _proto = LiveNotice.prototype;
 
     _proto.createEl = function createEl() {
-      var el = videojs__default['default'].dom.createEl('div', {
+      var el = videojs__default["default"].dom.createEl('div', {
         className: 'vjs-live-notice',
         innerHTML: "\n        <div class=\"vjs-live-notice-spot vjs-icon-circle\"></div>\n        Live\n      "
       });
@@ -133,9 +133,9 @@
     return LiveNotice;
   }(ClickableComponent);
 
-  videojs__default['default'].registerComponent('LiveNotice', LiveNotice);
+  videojs__default["default"].registerComponent('LiveNotice', LiveNotice);
 
-  var Plugin = videojs__default['default'].getPlugin('plugin');
+  var Plugin = videojs__default["default"].getPlugin('plugin');
   var defaults = {
     dvr: true
   };
@@ -151,7 +151,7 @@
       }
 
       _this = _Plugin.call(this, player, options) || this;
-      _this.options = videojs__default['default'].mergeOptions(defaults, options);
+      _this.options = videojs__default["default"].mergeOptions(defaults, options);
 
       _this.createLiveNotive(player);
 
@@ -204,7 +204,7 @@
     return Live;
   }(Plugin);
 
-  videojs__default['default'].registerPlugin('live', Live);
+  videojs__default["default"].registerPlugin('live', Live);
 
-})));
+}));
 //# sourceMappingURL=index.js.map

@@ -4,7 +4,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.videojs));
-}(this, (function (videojs) { 'use strict';
+})(this, (function (videojs) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -51,7 +51,7 @@
   } catch (e) {}
 
   var log = function () {
-    if (logType === 'normal' || videojs__default['default'].browser.IE_VERSION) {
+    if (logType === 'normal' || videojs__default["default"].browser.IE_VERSION) {
       // log without style
       return console.info.bind(console, '[VJS Plus]:');
     } else if (logType) {
@@ -62,7 +62,7 @@
     return function () {};
   }();
 
-  var SettingOptionItem = videojs__default['default'].getComponent('SettingOptionItem');
+  var SettingOptionItem = videojs__default["default"].getComponent('SettingOptionItem');
 
   var QualityHlsSettingItem = /*#__PURE__*/function (_SettingOptionItem) {
     _inheritsLoose(QualityHlsSettingItem, _SettingOptionItem);
@@ -182,8 +182,8 @@
     return QualityHlsSettingItem;
   }(SettingOptionItem);
 
-  videojs__default['default'].getComponent('SettingMenuButton').prototype.options_.entries.push('QualityHlsSettingItem');
-  videojs__default['default'].registerComponent('QualityHlsSettingItem', QualityHlsSettingItem);
+  videojs__default["default"].getComponent('SettingMenuButton').prototype.options_.entries.push('QualityHlsSettingItem');
+  videojs__default["default"].registerComponent('QualityHlsSettingItem', QualityHlsSettingItem);
 
-})));
+}));
 //# sourceMappingURL=index.js.map

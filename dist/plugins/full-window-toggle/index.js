@@ -4,7 +4,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.videojs));
-}(this, (function (videojs) { 'use strict';
+})(this, (function (videojs) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -66,12 +66,12 @@
     };
 
     return FullWindowToggle;
-  }(videojs__default['default'].getComponent('FullscreenToggle'));
+  }(videojs__default["default"].getComponent('FullscreenToggle'));
 
-  videojs__default['default'].registerComponent('FullWindowToggle', FullWindowToggle);
-  var controlBarChildren = videojs__default['default'].getComponent('ControlBar').prototype.options_.children;
+  videojs__default["default"].registerComponent('FullWindowToggle', FullWindowToggle);
+  var controlBarChildren = videojs__default["default"].getComponent('ControlBar').prototype.options_.children;
   var fullScreenButtonIndex = controlBarChildren.indexOf('FullscreenToggle');
   controlBarChildren[fullScreenButtonIndex] = 'FullWindowToggle';
 
-})));
+}));
 //# sourceMappingURL=index.js.map

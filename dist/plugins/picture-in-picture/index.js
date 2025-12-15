@@ -4,7 +4,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.videojs));
-}(this, (function (videojs) { 'use strict';
+})(this, (function (videojs) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -44,7 +44,7 @@
     return _setPrototypeOf(o, p);
   }
 
-  var ClickableComponent = videojs__default['default'].getComponent('ClickableComponent');
+  var ClickableComponent = videojs__default["default"].getComponent('ClickableComponent');
 
   var ExitPipButton = /*#__PURE__*/function (_ClickableComponent) {
     _inheritsLoose(ExitPipButton, _ClickableComponent);
@@ -72,9 +72,9 @@
   }(ClickableComponent);
 
   ExitPipButton.prototype.controlText_ = 'Exit Pictutre In Pictutre';
-  videojs__default['default'].registerComponent('ExitPipButton', ExitPipButton);
+  videojs__default["default"].registerComponent('ExitPipButton', ExitPipButton);
 
-  var Component = videojs__default['default'].getComponent('Component');
+  var Component = videojs__default["default"].getComponent('Component');
 
   var PipPlayerWrapper = /*#__PURE__*/function (_Component) {
     _inheritsLoose(PipPlayerWrapper, _Component);
@@ -111,9 +111,9 @@
     return PipPlayerWrapper;
   }(Component);
 
-  videojs__default['default'].registerComponent('PipPlayerWrapper', PipPlayerWrapper);
+  videojs__default["default"].registerComponent('PipPlayerWrapper', PipPlayerWrapper);
 
-  var Button = videojs__default['default'].getComponent('Button');
+  var Button = videojs__default["default"].getComponent('Button');
 
   var PipButton = /*#__PURE__*/function (_Button) {
     _inheritsLoose(PipButton, _Button);
@@ -148,8 +148,8 @@
   }(Button);
 
   PipButton.prototype.controlText_ = 'Picture in Picture';
-  videojs__default['default'].registerComponent('PipButton', PipButton);
-  videojs__default['default'].hook('setup', function (vjsPlayer) {
+  videojs__default["default"].registerComponent('PipButton', PipButton);
+  videojs__default["default"].hook('setup', function (vjsPlayer) {
     var _vjsPlayer$findChild$ = vjsPlayer.findChild('SettingMenuButton')[0],
         parent = _vjsPlayer$findChild$.parent,
         index = _vjsPlayer$findChild$.index;
@@ -195,7 +195,7 @@
       var parentPlayer = this.parentPlayer,
           options_ = this.options_;
       var id = parentPlayer.id_ + '-pip-player';
-      var videoEl = videojs__default['default'].dom.createEl('video', {
+      var videoEl = videojs__default["default"].dom.createEl('video', {
         id: id,
         className: 'vjs-pip-player'
       });
@@ -206,7 +206,7 @@
         muted: parentPlayer.muted()
       });
 
-      var pipPlayer = this.pipPlayer = videojs__default['default'](videoEl, pipPlayerOptions);
+      var pipPlayer = this.pipPlayer = videojs__default["default"](videoEl, pipPlayerOptions);
       this.wrapper = new PipPlayerWrapper(pipPlayer, _extends({}, options_, {
         parentPlayer: parentPlayer
       }));
@@ -330,9 +330,9 @@
     };
 
     return pictureInPicture;
-  }(videojs__default['default'].getPlugin('plugin'));
+  }(videojs__default["default"].getPlugin('plugin'));
 
-  videojs__default['default'].registerPlugin('pictureInPicture', pictureInPicture);
+  videojs__default["default"].registerPlugin('pictureInPicture', pictureInPicture);
 
-})));
+}));
 //# sourceMappingURL=index.js.map

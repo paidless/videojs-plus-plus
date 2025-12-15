@@ -99,7 +99,7 @@ var List = /*#__PURE__*/function () {
   return List;
 }();
 
-var ClickableComponent = videojs.getComponent('ClickableComponent');
+var ClickableComponent$1 = videojs.getComponent('ClickableComponent');
 
 var PlayNextSpinner = /*#__PURE__*/function (_ClickableComponent) {
   _inheritsLoose(PlayNextSpinner, _ClickableComponent);
@@ -128,7 +128,7 @@ var PlayNextSpinner = /*#__PURE__*/function (_ClickableComponent) {
   };
 
   return PlayNextSpinner;
-}(ClickableComponent);
+}(ClickableComponent$1);
 
 PlayNextSpinner.prototype.controlText_ = 'PlayNext';
 videojs.registerComponent('PlayNextSpinner', PlayNextSpinner);
@@ -399,7 +399,7 @@ if (indexOfPlayToggle !== -1) {
 
 videojs.registerComponent('PrevNextButton', PrevNextButton);
 
-var ClickableComponent$1 = videojs.getComponent('ClickableComponent');
+var ClickableComponent = videojs.getComponent('ClickableComponent');
 
 var CancelPlayNextEl = /*#__PURE__*/function (_ClickableComponent) {
   _inheritsLoose(CancelPlayNextEl, _ClickableComponent);
@@ -423,7 +423,7 @@ var CancelPlayNextEl = /*#__PURE__*/function (_ClickableComponent) {
   };
 
   return CancelPlayNextEl;
-}(ClickableComponent$1);
+}(ClickableComponent);
 
 CancelPlayNextEl.prototype.controlText_ = 'Cancel PlayNext';
 videojs.registerComponent('CancelPlayNextEl', CancelPlayNextEl);

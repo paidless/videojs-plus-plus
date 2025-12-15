@@ -4,7 +4,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.videojs));
-}(this, (function (videojs) { 'use strict';
+})(this, (function (videojs) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -52,7 +52,7 @@
     return self;
   }
 
-  var SettingOptionItem = videojs__default['default'].getComponent('SettingOptionItem');
+  var SettingOptionItem = videojs__default["default"].getComponent('SettingOptionItem');
 
   var AudioTrackSettingItem = /*#__PURE__*/function (_SettingOptionItem) {
     _inheritsLoose(AudioTrackSettingItem, _SettingOptionItem);
@@ -158,8 +158,8 @@
     return AudioTrackSettingItem;
   }(SettingOptionItem);
 
-  videojs__default['default'].getComponent('SettingMenuButton').prototype.options_.entries.push('AudioTrackSettingItem');
-  videojs__default['default'].registerComponent('AudioTrackSettingItem', AudioTrackSettingItem);
+  videojs__default["default"].getComponent('SettingMenuButton').prototype.options_.entries.push('AudioTrackSettingItem');
+  videojs__default["default"].registerComponent('AudioTrackSettingItem', AudioTrackSettingItem);
 
   var audio = /*#__PURE__*/function (_videojs$getPlugin) {
     _inheritsLoose(audio, _videojs$getPlugin);
@@ -209,9 +209,9 @@
     };
 
     return audio;
-  }(videojs__default['default'].getPlugin('plugin'));
+  }(videojs__default["default"].getPlugin('plugin'));
 
-  videojs__default['default'].registerPlugin('audio', audio);
+  videojs__default["default"].registerPlugin('audio', audio);
 
-})));
+}));
 //# sourceMappingURL=index.js.map

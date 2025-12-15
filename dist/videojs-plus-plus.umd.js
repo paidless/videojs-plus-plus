@@ -4,7 +4,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.videojs));
-}(this, (function (videojs) { 'use strict';
+})(this, (function (videojs) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -38,7 +38,7 @@
     };
   }
 
-  videojs__default['default'].getComponent('Component').prototype.findChild = function (name) {
+  videojs__default["default"].getComponent('Component').prototype.findChild = function (name) {
     var result = [];
     findChild(this, name, result);
     return result;
@@ -101,14 +101,14 @@
     };
 
     return getDuration;
-  }(videojs__default['default'].getPlugin('plugin'));
+  }(videojs__default["default"].getPlugin('plugin'));
 
-  videojs__default['default'].registerPlugin('getDuration', getDuration);
+  videojs__default["default"].registerPlugin('getDuration', getDuration);
 
-  var _videojs$browser = videojs__default['default'].browser,
+  var _videojs$browser = videojs__default["default"].browser,
       IS_IPHONE = _videojs$browser.IS_IPHONE,
       IOS_VERSION = _videojs$browser.IOS_VERSION;
-  videojs__default['default'].hook('setup', function (vjsPlayer) {
+  videojs__default["default"].hook('setup', function (vjsPlayer) {
     vjsPlayer.playsinline(vjsPlayer.options_.playsinline !== false);
     vjsPlayer.addClass('video-js');
 
@@ -121,8 +121,8 @@
     }
   });
 
-  var Component = videojs__default['default'].getComponent('Component');
-  var ControlBar = videojs__default['default'].getComponent('ControlBar');
+  var Component$1 = videojs__default["default"].getComponent('Component');
+  var ControlBar = videojs__default["default"].getComponent('ControlBar');
 
   var ControlSeparator = /*#__PURE__*/function (_Component) {
     _inheritsLoose(ControlSeparator, _Component);
@@ -140,10 +140,10 @@
     }
 
     return ControlSeparator;
-  }(Component);
+  }(Component$1);
 
-  videojs__default['default'].registerComponent('ControlSeparator', ControlSeparator);
-  videojs__default['default'].hook('beforesetup', function (_, options) {
+  videojs__default["default"].registerComponent('ControlSeparator', ControlSeparator);
+  videojs__default["default"].hook('beforesetup', function (_, options) {
     var children = ControlBar.prototype.options_.children.slice(0);
     var index = children.indexOf('CustomControlSpacer');
 
@@ -166,7 +166,7 @@
     return options;
   }); // prevent control bar immediately shown
 
-  videojs__default['default'].hook('setup', function (vjsPlayer) {
+  videojs__default["default"].hook('setup', function (vjsPlayer) {
     var enableMobileView = vjsPlayer.options_.mobileView !== false;
 
     var matchDimension = function matchDimension(value) {
@@ -195,12 +195,12 @@
     }
   });
 
-  var Dom = videojs__default['default'].dom;
-  var TimeTooltip = videojs__default['default'].getComponent('TimeTooltip'); // https://github.com/Ami-OS/video.js/blob/65750e311661e70f170e3652573caacf6f21fcce/src/js/control-bar/progress-control/time-tooltip.js#L54-L133
+  var Dom$1 = videojs__default["default"].dom;
+  var TimeTooltip = videojs__default["default"].getComponent('TimeTooltip'); // https://github.com/Ami-OS/video.js/blob/65750e311661e70f170e3652573caacf6f21fcce/src/js/control-bar/progress-control/time-tooltip.js#L54-L133
 
   TimeTooltip.prototype.update = function update(seekBarRect, seekBarPoint, content) {
-    var tooltipRect = Dom.getBoundingClientRect(this.el_);
-    var playerRect = Dom.getBoundingClientRect(this.player_.el());
+    var tooltipRect = Dom$1.getBoundingClientRect(this.el_);
+    var playerRect = Dom$1.getBoundingClientRect(this.player_.el());
     var seekBarPointPx = seekBarRect.width * seekBarPoint; // do nothing if either rect isn't available
     // for example, if the player isn't in the DOM for testing
 
@@ -238,7 +238,7 @@
     this.write(content);
   };
 
-  var Component$1 = videojs__default['default'].getComponent('Component');
+  var Component = videojs__default["default"].getComponent('Component');
 
   var ProgressBarPadding = /*#__PURE__*/function (_Component) {
     _inheritsLoose(ProgressBarPadding, _Component);
@@ -259,7 +259,7 @@
     var _proto = ProgressBarPadding.prototype;
 
     _proto.createEl = function createEl() {
-      return videojs__default['default'].dom.createEl('div', {
+      return videojs__default["default"].dom.createEl('div', {
         // Prefixing classes of elements within a player with "vjs-"
         // is a convention used in Video.js.
         className: 'vjs-progress-bar-padding'
@@ -267,10 +267,10 @@
     };
 
     return ProgressBarPadding;
-  }(Component$1);
+  }(Component);
 
-  videojs__default['default'].registerComponent('ProgressBarPadding', ProgressBarPadding);
-  videojs__default['default'].getComponent('seekBar').prototype.options_.children.push('ProgressBarPadding');
+  videojs__default["default"].registerComponent('ProgressBarPadding', ProgressBarPadding);
+  videojs__default["default"].getComponent('seekBar').prototype.options_.children.push('ProgressBarPadding');
 
   /**
    * Keep a number between a min and a max value
@@ -293,8 +293,8 @@
     return Math.min(max, Math.max(min, isNaN(number) ? min : number));
   };
 
-  var Dom$1 = videojs__default['default'].dom;
-  var SeekBar = videojs__default['default'].getComponent('SeekBar');
+  var Dom = videojs__default["default"].dom;
+  var SeekBar = videojs__default["default"].getComponent('SeekBar');
   /**
    * Update time display position
    * 
@@ -306,8 +306,8 @@
     // https://github.com/videojs/video.js/blob/4238f5c1d88890547153e7e1de7bd0d1d8e0b236/src/js/control-bar/progress-control/progress-control.js#L51-L91
     var mouseTimeDisplay = this.getChild('mouseTimeDisplay');
     var seekBarEl = this.el();
-    var seekBarRect = Dom$1.getBoundingClientRect(seekBarEl);
-    var seekBarPoint = Dom$1.getPointerPosition(seekBarEl, event).x; // The default skin has a gap on either side of the `SeekBar` (this). This means
+    var seekBarRect = Dom.getBoundingClientRect(seekBarEl);
+    var seekBarPoint = Dom.getPointerPosition(seekBarEl, event).x; // The default skin has a gap on either side of the `SeekBar` (this). This means
     // that it's possible to trigger this behavior outside the boundaries of
     // the `SeekBar` (this). This ensures we stay within it at all times.
 
@@ -337,7 +337,7 @@
     var player = this.player_;
     updateTimeDisplay.apply(this, arguments); // if (!videojs.dom.isSingleLeftClick(event) || isAdPlaying(player)) {
 
-    if (!videojs__default['default'].dom.isSingleLeftClick(event)) {
+    if (!videojs__default["default"].dom.isSingleLeftClick(event)) {
       return;
     }
 
@@ -351,8 +351,8 @@
     this.update();
   };
 
-  videojs__default['default'].getComponent('ControlBar').prototype.options_.children = ['PlayToggle', 'CustomControlSpacer', 'VolumePanel', 'CurrentTimeDisplay', 'TimeDivider', 'DurationDisplay', 'ProgressControl', 'CustomControlSpacer', 'SettingMenuButton', 'FullscreenToggle'];
-  videojs__default['default'].hook('setup', function (vjsPlayer) {
+  videojs__default["default"].getComponent('ControlBar').prototype.options_.children = ['PlayToggle', 'CustomControlSpacer', 'VolumePanel', 'CurrentTimeDisplay', 'TimeDivider', 'DurationDisplay', 'ProgressControl', 'CustomControlSpacer', 'SettingMenuButton', 'FullscreenToggle'];
+  videojs__default["default"].hook('setup', function (vjsPlayer) {
     vjsPlayer.on('mouseleave', function () {
       vjsPlayer.userActive(false);
     });
@@ -382,7 +382,7 @@
         className: 'vjs-title'
       });
 
-      this.contentEl_ = videojs__default['default'].dom.createEl('div', {
+      this.contentEl_ = videojs__default["default"].dom.createEl('div', {
         className: 'vjs-title-field'
       });
       el.appendChild(this.contentEl_);
@@ -402,7 +402,7 @@
     };
 
     return Title;
-  }(videojs__default['default'].getComponent('Component'));
+  }(videojs__default["default"].getComponent('Component'));
 
   var title = function title(title_) {
     var videoTitle = this.player_.getChild('VideoTitle');
@@ -414,12 +414,12 @@
     videoTitle.update(title_);
   };
 
-  videojs__default['default'].registerPlugin('title', title);
-  videojs__default['default'].registerComponent('VideoTitle', Title);
-  videojs__default['default'].getComponent('Player').prototype.options_.children.splice(2, 0, 'VideoTitle');
+  videojs__default["default"].registerPlugin('title', title);
+  videojs__default["default"].registerComponent('VideoTitle', Title);
+  videojs__default["default"].getComponent('Player').prototype.options_.children.splice(2, 0, 'VideoTitle');
 
-  var PlayToggleButton = videojs__default['default'].getComponent('PlayToggle');
-  var ClickableComponent = videojs__default['default'].getComponent('ClickableComponent');
+  var PlayToggleButton = videojs__default["default"].getComponent('PlayToggle');
+  var ClickableComponent$2 = videojs__default["default"].getComponent('ClickableComponent');
 
   var PlayToggleLayer = /*#__PURE__*/function (_ClickableComponent) {
     _inheritsLoose(PlayToggleLayer, _ClickableComponent);
@@ -431,7 +431,7 @@
     var _proto = PlayToggleLayer.prototype;
 
     _proto.createEl = function createEl() {
-      return videojs__default['default'].dom.createEl('div', {
+      return videojs__default["default"].dom.createEl('div', {
         className: 'vjs-play-toggle-layer'
       });
     };
@@ -443,14 +443,14 @@
     };
 
     return PlayToggleLayer;
-  }(ClickableComponent);
+  }(ClickableComponent$2);
 
-  videojs__default['default'].registerComponent('PlayToggleLayer', PlayToggleLayer);
-  var playerChildren = videojs__default['default'].getComponent('Player').prototype.options_.children;
+  videojs__default["default"].registerComponent('PlayToggleLayer', PlayToggleLayer);
+  var playerChildren = videojs__default["default"].getComponent('Player').prototype.options_.children;
   var loadSpinnerIndex = playerChildren.indexOf('loadingSpinner');
   playerChildren.splice(loadSpinnerIndex, 0, 'PlayToggleLayer');
 
-  var MenuItem = videojs__default['default'].getComponent('MenuItem');
+  var MenuItem$1 = videojs__default["default"].getComponent('MenuItem');
 
   var ContextMenuItem = /*#__PURE__*/function (_MenuItem) {
     _inheritsLoose(ContextMenuItem, _MenuItem);
@@ -490,9 +490,9 @@
     };
 
     return ContextMenuItem;
-  }(MenuItem);
+  }(MenuItem$1);
 
-  videojs__default['default'].registerComponent('ContextMenuItem', ContextMenuItem);
+  videojs__default["default"].registerComponent('ContextMenuItem', ContextMenuItem);
 
   var ContextMenuToggleLoop = /*#__PURE__*/function (_ContextMenuItem) {
     _inheritsLoose(ContextMenuToggleLoop, _ContextMenuItem);
@@ -528,7 +528,7 @@
     return ContextMenuToggleLoop;
   }(ContextMenuItem);
 
-  videojs__default['default'].registerComponent('ContextMenuToggleLoop', ContextMenuToggleLoop);
+  videojs__default["default"].registerComponent('ContextMenuToggleLoop', ContextMenuToggleLoop);
 
   var AboutThisPlayer = /*#__PURE__*/function (_ContextMenuItem) {
     _inheritsLoose(AboutThisPlayer, _ContextMenuItem);
@@ -552,9 +552,9 @@
     return AboutThisPlayer;
   }(ContextMenuItem);
 
-  videojs__default['default'].registerComponent('AboutThisPlayer', AboutThisPlayer);
+  videojs__default["default"].registerComponent('AboutThisPlayer', AboutThisPlayer);
 
-  var ClickableComponent$1 = videojs__default['default'].getComponent('ClickableComponent'); // for mobile view
+  var ClickableComponent$1 = videojs__default["default"].getComponent('ClickableComponent'); // for mobile view
 
   var CloseContextMenu = /*#__PURE__*/function (_ClickableComponent) {
     _inheritsLoose(CloseContextMenu, _ClickableComponent);
@@ -576,9 +576,9 @@
     return CloseContextMenu;
   }(ClickableComponent$1);
 
-  videojs__default['default'].registerComponent('CloseContextMenu', CloseContextMenu);
+  videojs__default["default"].registerComponent('CloseContextMenu', CloseContextMenu);
 
-  var Menu = videojs__default['default'].getComponent('Menu');
+  var Menu$1 = videojs__default["default"].getComponent('Menu');
 
   var ContextMenu = /*#__PURE__*/function (_Menu) {
     _inheritsLoose(ContextMenu, _Menu);
@@ -677,15 +677,15 @@
     };
 
     return ContextMenu;
-  }(Menu);
+  }(Menu$1);
 
   ContextMenu.prototype.options_ = {
     children: ['ContextMenuToggleLoop', 'AboutThisPlayer']
   };
-  videojs__default['default'].registerComponent('ContextMenu', ContextMenu);
-  videojs__default['default'].getComponent('Player').prototype.options_.children.push('ContextMenu');
+  videojs__default["default"].registerComponent('ContextMenu', ContextMenu);
+  videojs__default["default"].getComponent('Player').prototype.options_.children.push('ContextMenu');
 
-  var ClickableComponent$2 = videojs__default['default'].getComponent('ClickableComponent');
+  var ClickableComponent = videojs__default["default"].getComponent('ClickableComponent');
 
   var CloseSettingMenu = /*#__PURE__*/function (_ClickableComponent) {
     _inheritsLoose(CloseSettingMenu, _ClickableComponent);
@@ -705,11 +705,11 @@
     };
 
     return CloseSettingMenu;
-  }(ClickableComponent$2);
+  }(ClickableComponent);
 
-  videojs__default['default'].registerComponent('CloseSettingMenu', CloseSettingMenu);
+  videojs__default["default"].registerComponent('CloseSettingMenu', CloseSettingMenu);
 
-  var Menu$1 = videojs__default['default'].getComponent('Menu');
+  var Menu = videojs__default["default"].getComponent('Menu');
 
   var SettingMenu = /*#__PURE__*/function (_Menu) {
     _inheritsLoose(SettingMenu, _Menu);
@@ -803,6 +803,83 @@
       this.transform(this.mainMenuItems);
     };
 
+    _proto.animate = function animate(operation, direction) {
+      if (direction === void 0) {
+        direction = 'in';
+      }
+
+      var menuContent = this.contentEl_;
+      var animations = {
+        "in": {
+          old: [{
+            opacity: 1,
+            translate: '0 0'
+          }, {
+            opacity: 0,
+            translate: '-100% 0'
+          }],
+          "new": [{
+            opacity: 0,
+            translate: '100% 0'
+          }, {
+            opacity: 1,
+            translate: '0 0'
+          }]
+        },
+        out: {
+          old: [{
+            opacity: 1,
+            translate: '0 0'
+          }, {
+            opacity: 0,
+            translate: '100% 0'
+          }],
+          "new": [{
+            opacity: 0,
+            translate: '-100% 0'
+          }, {
+            opacity: 1,
+            translate: '0 0'
+          }]
+        }
+      };
+      var clonedMenuContent = menuContent.cloneNode(true); // DOM operation
+      // For animation purpose
+
+      clonedMenuContent.style.position = 'absolute';
+      clonedMenuContent.style.bottom = '0';
+      clonedMenuContent.style.right = '0';
+      clonedMenuContent.style.pointerEvents = 'none';
+      this.el().appendChild(clonedMenuContent); // DOM operation
+
+      var oldAnimations = Array.from(clonedMenuContent.children).map(function (e) {
+        return e.animate(animations[direction].old, {
+          duration: 200,
+          easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+          fill: 'forwards'
+        });
+      });
+      Promise.all(oldAnimations.map(function (a) {
+        return a.finished;
+      })).then(function () {
+        clonedMenuContent.remove(); // DOM operation
+      }); // Update menu content
+
+      operation(); // Animate new menu content
+
+      var newMenuContent = this.contentEl_;
+      var newAnimations = Array.from(newMenuContent.children).map(function (e) {
+        return e.animate(animations[direction]["new"], {
+          duration: 250,
+          easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+          fill: 'forwards'
+        });
+      });
+      return Promise.all(newAnimations.map(function (a) {
+        return a.finished;
+      }));
+    };
+
     _proto.removeStyle = function removeStyle() {
       this.contentEl_.removeAttribute('style');
     };
@@ -812,7 +889,7 @@
     };
 
     return SettingMenu;
-  }(Menu$1);
+  }(Menu);
 
   var SettingMenuTemp = /*#__PURE__*/function (_SettingMenu) {
     _inheritsLoose(SettingMenuTemp, _SettingMenu);
@@ -832,9 +909,9 @@
     return SettingMenuTemp;
   }(SettingMenu);
 
-  videojs__default['default'].registerComponent('SettingMenu', SettingMenu);
+  videojs__default["default"].registerComponent('SettingMenu', SettingMenu);
 
-  var MenuItem$1 = videojs__default['default'].getComponent('MenuItem');
+  var MenuItem = videojs__default["default"].getComponent('MenuItem');
 
   var SettingMenuItem = /*#__PURE__*/function (_MenuItem) {
     _inheritsLoose(SettingMenuItem, _MenuItem);
@@ -842,7 +919,7 @@
     function SettingMenuItem(player, options) {
       var _this;
 
-      _this = _MenuItem.call(this, player, videojs__default['default'].mergeOptions({
+      _this = _MenuItem.call(this, player, videojs__default["default"].mergeOptions({
         selectable: false
       }, options)) || this;
       _this.menu = options.menu;
@@ -850,9 +927,9 @@
     }
 
     return SettingMenuItem;
-  }(MenuItem$1);
+  }(MenuItem);
 
-  videojs__default['default'].registerComponent('SettingMenuItem', SettingMenuItem);
+  videojs__default["default"].registerComponent('SettingMenuItem', SettingMenuItem);
 
   var SettingOnOffItem = /*#__PURE__*/function (_SettingMenuItem) {
     _inheritsLoose(SettingOnOffItem, _SettingMenuItem);
@@ -865,7 +942,7 @@
 
     _proto.createEl = function createEl() {
       var options = this.options_;
-      var el = videojs__default['default'].dom.createEl('li', {
+      var el = videojs__default["default"].dom.createEl('li', {
         className: 'vjs-menu-item vjs-setting-onoff-item',
         innerHTML: "\n        <div class=\"vjs-icon-placeholder " + (this.options_.icon || '') + "\"></div>\n        <div>" + this.localize(options.label) + "</div>\n        <div class=\"vjs-spacer\"></div>\n        <div>\n          <div class=\"vjs-onoff-button\"></div>\n        </div>\n      "
       });
@@ -891,7 +968,7 @@
     return SettingOnOffItem;
   }(SettingMenuItem);
 
-  videojs__default['default'].registerComponent('SettingOnOffItem', SettingOnOffItem);
+  videojs__default["default"].registerComponent('SettingOnOffItem', SettingOnOffItem);
 
   var SettingSubOptionTitle = /*#__PURE__*/function (_SettingMenuItem) {
     _inheritsLoose(SettingSubOptionTitle, _SettingMenuItem);
@@ -901,7 +978,7 @@
 
       _this = _SettingMenuItem.call(this, player, options) || this;
 
-      _this.el_.insertAdjacentElement('afterbegin', videojs__default['default'].dom.createEl('div'));
+      _this.el_.insertAdjacentElement('afterbegin', videojs__default["default"].dom.createEl('div'));
 
       _this.addClass('vjs-settings-sub-menu-item');
 
@@ -913,13 +990,17 @@
     var _proto = SettingSubOptionTitle.prototype;
 
     _proto.handleClick = function handleClick() {
-      this.options_.menu.restore();
+      var _this2 = this;
+
+      this.options_.menu.animate(function () {
+        _this2.options_.menu.restore();
+      }, 'out');
     };
 
     return SettingSubOptionTitle;
   }(SettingMenuItem);
 
-  videojs__default['default'].registerComponent('SettingSubOptionTitle', SettingSubOptionTitle);
+  videojs__default["default"].registerComponent('SettingSubOptionTitle', SettingSubOptionTitle);
 
   var SettingSubOptionItem = /*#__PURE__*/function (_SettingMenuItem) {
     _inheritsLoose(SettingSubOptionItem, _SettingMenuItem);
@@ -932,7 +1013,7 @@
 
       Object.assign(_assertThisInitialized(_this), options);
 
-      _this.el_.insertAdjacentElement('afterbegin', videojs__default['default'].dom.createEl('div'));
+      _this.el_.insertAdjacentElement('afterbegin', videojs__default["default"].dom.createEl('div'));
 
       _this.addClass('vjs-settings-sub-menu-item');
 
@@ -950,16 +1031,20 @@
     };
 
     _proto.handleClick = function handleClick() {
+      var _this2 = this;
+
       this.parent.onChange({
         index: this.options_.index
       });
-      this.menu.restore();
+      this.menu.animate(function () {
+        _this2.menu.restore();
+      }, 'out');
     };
 
     return SettingSubOptionItem;
   }(SettingMenuItem);
 
-  videojs__default['default'].registerComponent('SettingSubOptionItem', SettingSubOptionItem);
+  videojs__default["default"].registerComponent('SettingSubOptionItem', SettingSubOptionItem);
 
   /**
    * @param {Array<Object|number|string>} entries
@@ -1019,11 +1104,11 @@
       var _this$options_ = this.options_,
           icon = _this$options_.icon,
           label = _this$options_.label;
-      var el = videojs__default['default'].dom.createEl('li', {
+      var el = videojs__default["default"].dom.createEl('li', {
         className: 'vjs-menu-item vjs-setting-menu-item',
         innerHTML: "\n        <div class=\"vjs-icon-placeholder " + (icon || '') + "\"></div>\n        <div class=\"vjs-setting-menu-label\">" + this.localize(label) + "</div>\n        <div class=\"vjs-spacer\"></div>\n      "
       });
-      this.selectedValueEl = videojs__default['default'].dom.createEl('div', {
+      this.selectedValueEl = videojs__default["default"].dom.createEl('div', {
         className: 'vjs-setting-menu-value'
       });
       el.appendChild(this.selectedValueEl);
@@ -1039,7 +1124,7 @@
 
       Object.assign(this, parseEntries(entries_, selectedIndex));
       this.updateSelectedValue();
-      var SubOptionItem = videojs__default['default'].getComponent(this.name_ + "Child") || SettingSubOptionItem;
+      var SubOptionItem = videojs__default["default"].getComponent(this.name_ + "Child") || SettingSubOptionItem;
       this.subMenuItems = [new SettingSubOptionTitle(this.player_, {
         label: this.options_.label,
         menu: this.menu
@@ -1057,7 +1142,11 @@
     };
 
     _proto.handleClick = function handleClick() {
-      this.menu.transform(this.subMenuItems);
+      var _this3 = this;
+
+      this.menu.animate(function () {
+        _this3.menu.transform(_this3.subMenuItems);
+      }, 'in');
     };
 
     _proto.select = function select(index) {
@@ -1086,7 +1175,7 @@
     return SettingOptionItem;
   }(SettingMenuItem);
 
-  videojs__default['default'].registerComponent('SettingOptionItem', SettingOptionItem);
+  videojs__default["default"].registerComponent('SettingOptionItem', SettingOptionItem);
 
   var logType = '';
 
@@ -1095,7 +1184,7 @@
   } catch (e) {}
 
   var log = function () {
-    if (logType === 'normal' || videojs__default['default'].browser.IE_VERSION) {
+    if (logType === 'normal' || videojs__default["default"].browser.IE_VERSION) {
       // log without style
       return console.info.bind(console, '[VJS Plus]:');
     } else if (logType) {
@@ -1162,9 +1251,9 @@
     return PlaybackRateSettingItem;
   }(SettingOptionItem);
 
-  videojs__default['default'].registerComponent('PlaybackRateSettingItem', PlaybackRateSettingItem);
+  videojs__default["default"].registerComponent('PlaybackRateSettingItem', PlaybackRateSettingItem);
 
-  var MenuButton = videojs__default['default'].getComponent('MenuButton');
+  var MenuButton = videojs__default["default"].getComponent('MenuButton');
 
   var SettingMenuButton = /*#__PURE__*/function (_MenuButton) {
     _inheritsLoose(SettingMenuButton, _MenuButton);
@@ -1250,7 +1339,7 @@
   SettingMenuButton.prototype.options_ = {
     entries: ['PlaybackRateSettingItem']
   };
-  videojs__default['default'].registerComponent('SettingMenuButton', SettingMenuButton);
+  videojs__default["default"].registerComponent('SettingMenuButton', SettingMenuButton);
 
-})));
+}));
 //# sourceMappingURL=videojs-plus-plus.umd.js.map

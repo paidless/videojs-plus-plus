@@ -113,7 +113,7 @@ videojs.hook('setup', function (vjsPlayer) {
   }
 });
 
-var Component = videojs.getComponent('Component');
+var Component$1 = videojs.getComponent('Component');
 var ControlBar = videojs.getComponent('ControlBar');
 
 var ControlSeparator = /*#__PURE__*/function (_Component) {
@@ -132,7 +132,7 @@ var ControlSeparator = /*#__PURE__*/function (_Component) {
   }
 
   return ControlSeparator;
-}(Component);
+}(Component$1);
 
 videojs.registerComponent('ControlSeparator', ControlSeparator);
 videojs.hook('beforesetup', function (_, options) {
@@ -187,12 +187,12 @@ videojs.hook('setup', function (vjsPlayer) {
   }
 });
 
-var Dom = videojs.dom;
+var Dom$1 = videojs.dom;
 var TimeTooltip = videojs.getComponent('TimeTooltip'); // https://github.com/Ami-OS/video.js/blob/65750e311661e70f170e3652573caacf6f21fcce/src/js/control-bar/progress-control/time-tooltip.js#L54-L133
 
 TimeTooltip.prototype.update = function update(seekBarRect, seekBarPoint, content) {
-  var tooltipRect = Dom.getBoundingClientRect(this.el_);
-  var playerRect = Dom.getBoundingClientRect(this.player_.el());
+  var tooltipRect = Dom$1.getBoundingClientRect(this.el_);
+  var playerRect = Dom$1.getBoundingClientRect(this.player_.el());
   var seekBarPointPx = seekBarRect.width * seekBarPoint; // do nothing if either rect isn't available
   // for example, if the player isn't in the DOM for testing
 
@@ -230,7 +230,7 @@ TimeTooltip.prototype.update = function update(seekBarRect, seekBarPoint, conten
   this.write(content);
 };
 
-var Component$1 = videojs.getComponent('Component');
+var Component = videojs.getComponent('Component');
 
 var ProgressBarPadding = /*#__PURE__*/function (_Component) {
   _inheritsLoose(ProgressBarPadding, _Component);
@@ -259,7 +259,7 @@ var ProgressBarPadding = /*#__PURE__*/function (_Component) {
   };
 
   return ProgressBarPadding;
-}(Component$1);
+}(Component);
 
 videojs.registerComponent('ProgressBarPadding', ProgressBarPadding);
 videojs.getComponent('seekBar').prototype.options_.children.push('ProgressBarPadding');
@@ -285,7 +285,7 @@ var clamp = function clamp(number, min, max) {
   return Math.min(max, Math.max(min, isNaN(number) ? min : number));
 };
 
-var Dom$1 = videojs.dom;
+var Dom = videojs.dom;
 var SeekBar = videojs.getComponent('SeekBar');
 /**
  * Update time display position
@@ -298,8 +298,8 @@ var updateTimeDisplay = function updateTimeDisplay(event) {
   // https://github.com/videojs/video.js/blob/4238f5c1d88890547153e7e1de7bd0d1d8e0b236/src/js/control-bar/progress-control/progress-control.js#L51-L91
   var mouseTimeDisplay = this.getChild('mouseTimeDisplay');
   var seekBarEl = this.el();
-  var seekBarRect = Dom$1.getBoundingClientRect(seekBarEl);
-  var seekBarPoint = Dom$1.getPointerPosition(seekBarEl, event).x; // The default skin has a gap on either side of the `SeekBar` (this). This means
+  var seekBarRect = Dom.getBoundingClientRect(seekBarEl);
+  var seekBarPoint = Dom.getPointerPosition(seekBarEl, event).x; // The default skin has a gap on either side of the `SeekBar` (this). This means
   // that it's possible to trigger this behavior outside the boundaries of
   // the `SeekBar` (this). This ensures we stay within it at all times.
 
@@ -411,7 +411,7 @@ videojs.registerComponent('VideoTitle', Title);
 videojs.getComponent('Player').prototype.options_.children.splice(2, 0, 'VideoTitle');
 
 var PlayToggleButton = videojs.getComponent('PlayToggle');
-var ClickableComponent = videojs.getComponent('ClickableComponent');
+var ClickableComponent$2 = videojs.getComponent('ClickableComponent');
 
 var PlayToggleLayer = /*#__PURE__*/function (_ClickableComponent) {
   _inheritsLoose(PlayToggleLayer, _ClickableComponent);
@@ -435,14 +435,14 @@ var PlayToggleLayer = /*#__PURE__*/function (_ClickableComponent) {
   };
 
   return PlayToggleLayer;
-}(ClickableComponent);
+}(ClickableComponent$2);
 
 videojs.registerComponent('PlayToggleLayer', PlayToggleLayer);
 var playerChildren = videojs.getComponent('Player').prototype.options_.children;
 var loadSpinnerIndex = playerChildren.indexOf('loadingSpinner');
 playerChildren.splice(loadSpinnerIndex, 0, 'PlayToggleLayer');
 
-var MenuItem = videojs.getComponent('MenuItem');
+var MenuItem$1 = videojs.getComponent('MenuItem');
 
 var ContextMenuItem = /*#__PURE__*/function (_MenuItem) {
   _inheritsLoose(ContextMenuItem, _MenuItem);
@@ -482,7 +482,7 @@ var ContextMenuItem = /*#__PURE__*/function (_MenuItem) {
   };
 
   return ContextMenuItem;
-}(MenuItem);
+}(MenuItem$1);
 
 videojs.registerComponent('ContextMenuItem', ContextMenuItem);
 
@@ -570,7 +570,7 @@ var CloseContextMenu = /*#__PURE__*/function (_ClickableComponent) {
 
 videojs.registerComponent('CloseContextMenu', CloseContextMenu);
 
-var Menu = videojs.getComponent('Menu');
+var Menu$1 = videojs.getComponent('Menu');
 
 var ContextMenu = /*#__PURE__*/function (_Menu) {
   _inheritsLoose(ContextMenu, _Menu);
@@ -669,7 +669,7 @@ var ContextMenu = /*#__PURE__*/function (_Menu) {
   };
 
   return ContextMenu;
-}(Menu);
+}(Menu$1);
 
 ContextMenu.prototype.options_ = {
   children: ['ContextMenuToggleLoop', 'AboutThisPlayer']
@@ -677,7 +677,7 @@ ContextMenu.prototype.options_ = {
 videojs.registerComponent('ContextMenu', ContextMenu);
 videojs.getComponent('Player').prototype.options_.children.push('ContextMenu');
 
-var ClickableComponent$2 = videojs.getComponent('ClickableComponent');
+var ClickableComponent = videojs.getComponent('ClickableComponent');
 
 var CloseSettingMenu = /*#__PURE__*/function (_ClickableComponent) {
   _inheritsLoose(CloseSettingMenu, _ClickableComponent);
@@ -697,11 +697,11 @@ var CloseSettingMenu = /*#__PURE__*/function (_ClickableComponent) {
   };
 
   return CloseSettingMenu;
-}(ClickableComponent$2);
+}(ClickableComponent);
 
 videojs.registerComponent('CloseSettingMenu', CloseSettingMenu);
 
-var Menu$1 = videojs.getComponent('Menu');
+var Menu = videojs.getComponent('Menu');
 
 var SettingMenu = /*#__PURE__*/function (_Menu) {
   _inheritsLoose(SettingMenu, _Menu);
@@ -795,6 +795,83 @@ var SettingMenu = /*#__PURE__*/function (_Menu) {
     this.transform(this.mainMenuItems);
   };
 
+  _proto.animate = function animate(operation, direction) {
+    if (direction === void 0) {
+      direction = 'in';
+    }
+
+    var menuContent = this.contentEl_;
+    var animations = {
+      "in": {
+        old: [{
+          opacity: 1,
+          translate: '0 0'
+        }, {
+          opacity: 0,
+          translate: '-100% 0'
+        }],
+        "new": [{
+          opacity: 0,
+          translate: '100% 0'
+        }, {
+          opacity: 1,
+          translate: '0 0'
+        }]
+      },
+      out: {
+        old: [{
+          opacity: 1,
+          translate: '0 0'
+        }, {
+          opacity: 0,
+          translate: '100% 0'
+        }],
+        "new": [{
+          opacity: 0,
+          translate: '-100% 0'
+        }, {
+          opacity: 1,
+          translate: '0 0'
+        }]
+      }
+    };
+    var clonedMenuContent = menuContent.cloneNode(true); // DOM operation
+    // For animation purpose
+
+    clonedMenuContent.style.position = 'absolute';
+    clonedMenuContent.style.bottom = '0';
+    clonedMenuContent.style.right = '0';
+    clonedMenuContent.style.pointerEvents = 'none';
+    this.el().appendChild(clonedMenuContent); // DOM operation
+
+    var oldAnimations = Array.from(clonedMenuContent.children).map(function (e) {
+      return e.animate(animations[direction].old, {
+        duration: 200,
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        fill: 'forwards'
+      });
+    });
+    Promise.all(oldAnimations.map(function (a) {
+      return a.finished;
+    })).then(function () {
+      clonedMenuContent.remove(); // DOM operation
+    }); // Update menu content
+
+    operation(); // Animate new menu content
+
+    var newMenuContent = this.contentEl_;
+    var newAnimations = Array.from(newMenuContent.children).map(function (e) {
+      return e.animate(animations[direction]["new"], {
+        duration: 250,
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        fill: 'forwards'
+      });
+    });
+    return Promise.all(newAnimations.map(function (a) {
+      return a.finished;
+    }));
+  };
+
   _proto.removeStyle = function removeStyle() {
     this.contentEl_.removeAttribute('style');
   };
@@ -804,7 +881,7 @@ var SettingMenu = /*#__PURE__*/function (_Menu) {
   };
 
   return SettingMenu;
-}(Menu$1);
+}(Menu);
 
 var SettingMenuTemp = /*#__PURE__*/function (_SettingMenu) {
   _inheritsLoose(SettingMenuTemp, _SettingMenu);
@@ -826,7 +903,7 @@ var SettingMenuTemp = /*#__PURE__*/function (_SettingMenu) {
 
 videojs.registerComponent('SettingMenu', SettingMenu);
 
-var MenuItem$1 = videojs.getComponent('MenuItem');
+var MenuItem = videojs.getComponent('MenuItem');
 
 var SettingMenuItem = /*#__PURE__*/function (_MenuItem) {
   _inheritsLoose(SettingMenuItem, _MenuItem);
@@ -842,7 +919,7 @@ var SettingMenuItem = /*#__PURE__*/function (_MenuItem) {
   }
 
   return SettingMenuItem;
-}(MenuItem$1);
+}(MenuItem);
 
 videojs.registerComponent('SettingMenuItem', SettingMenuItem);
 
@@ -905,7 +982,11 @@ var SettingSubOptionTitle = /*#__PURE__*/function (_SettingMenuItem) {
   var _proto = SettingSubOptionTitle.prototype;
 
   _proto.handleClick = function handleClick() {
-    this.options_.menu.restore();
+    var _this2 = this;
+
+    this.options_.menu.animate(function () {
+      _this2.options_.menu.restore();
+    }, 'out');
   };
 
   return SettingSubOptionTitle;
@@ -942,10 +1023,14 @@ var SettingSubOptionItem = /*#__PURE__*/function (_SettingMenuItem) {
   };
 
   _proto.handleClick = function handleClick() {
+    var _this2 = this;
+
     this.parent.onChange({
       index: this.options_.index
     });
-    this.menu.restore();
+    this.menu.animate(function () {
+      _this2.menu.restore();
+    }, 'out');
   };
 
   return SettingSubOptionItem;
@@ -1049,7 +1134,11 @@ var SettingOptionItem = /*#__PURE__*/function (_SettingMenuItem) {
   };
 
   _proto.handleClick = function handleClick() {
-    this.menu.transform(this.subMenuItems);
+    var _this3 = this;
+
+    this.menu.animate(function () {
+      _this3.menu.transform(_this3.subMenuItems);
+    }, 'in');
   };
 
   _proto.select = function select(index) {

@@ -4,7 +4,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.videojs));
-}(this, (function (videojs) { 'use strict';
+})(this, (function (videojs) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -33,7 +33,7 @@
   } catch (e) {}
 
   var log = function () {
-    if (logType === 'normal' || videojs__default['default'].browser.IE_VERSION) {
+    if (logType === 'normal' || videojs__default["default"].browser.IE_VERSION) {
       // log without style
       return console.info.bind(console, '[VJS Plus]:');
     } else if (logType) {
@@ -105,16 +105,16 @@
     };
 
     return ElectronFullscreenToggle;
-  }(videojs__default['default'].getComponent('FullscreenToggle'));
+  }(videojs__default["default"].getComponent('FullscreenToggle'));
 
   if (getCurrentWindow) {
-    videojs__default['default'].registerComponent('ElectronFullscreenToggle', ElectronFullscreenToggle);
-    var controlBarChildren = videojs__default['default'].getComponent('ControlBar').prototype.options_.children;
+    videojs__default["default"].registerComponent('ElectronFullscreenToggle', ElectronFullscreenToggle);
+    var controlBarChildren = videojs__default["default"].getComponent('ControlBar').prototype.options_.children;
     var fullScreenButtonIndex = controlBarChildren.indexOf('fullscreenToggle');
     controlBarChildren[fullScreenButtonIndex] = 'ElectronFullscreenToggle';
   } else {
     log('Plugin "ElectronFullscreenToggle" is not enabled, please check the docs for more information');
   }
 
-})));
+}));
 //# sourceMappingURL=index.js.map
