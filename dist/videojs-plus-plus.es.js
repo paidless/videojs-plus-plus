@@ -796,6 +796,8 @@ var SettingMenu = /*#__PURE__*/function (_Menu) {
   };
 
   _proto.animate = function animate(operation, direction) {
+    var _this3 = this;
+
     if (direction === void 0) {
       direction = 'in';
     }
@@ -844,6 +846,7 @@ var SettingMenu = /*#__PURE__*/function (_Menu) {
     clonedMenuContent.style.pointerEvents = 'none';
     this.el().appendChild(clonedMenuContent); // DOM operation
 
+    this.addClass('vjs-setting-menu-animating');
     var oldAnimations = Array.from(clonedMenuContent.children).map(function (e) {
       return e.animate(animations[direction].old, {
         duration: 200,
@@ -866,9 +869,11 @@ var SettingMenu = /*#__PURE__*/function (_Menu) {
         easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
       });
     });
-    return Promise.all(newAnimations.map(function (a) {
+    Promise.all(newAnimations.map(function (a) {
       return a.finished;
-    }));
+    })).then(function () {
+      _this3.removeClass('vjs-setting-menu-animating');
+    });
   };
 
   _proto.removeStyle = function removeStyle() {
@@ -886,15 +891,15 @@ var SettingMenuTemp = /*#__PURE__*/function (_SettingMenu) {
   _inheritsLoose(SettingMenuTemp, _SettingMenu);
 
   function SettingMenuTemp(player) {
-    var _this3;
+    var _this4;
 
-    _this3 = _SettingMenu.call(this, player, {
+    _this4 = _SettingMenu.call(this, player, {
       name: 'SettingMenuTemp'
     }) || this;
 
-    _this3.addClass('vjs-setting-menu-temp');
+    _this4.addClass('vjs-setting-menu-temp');
 
-    return _this3;
+    return _this4;
   }
 
   return SettingMenuTemp;
