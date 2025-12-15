@@ -5,8 +5,7 @@
   padding-right: 1em;
 }
 .vjs-live-streaming .vjs-live-notice {
-  display: flex;
-  align-items: center;
+  display: block;
   font-size: 0.9em;
   line-height: 1.8em;
   cursor: pointer;
@@ -20,6 +19,7 @@
 }
 
 .vjs-live-notice-spot {
+  display: inline-block;
   font-size: 0.65em;
   margin-right: 0.4em;
   color: #ccc;
