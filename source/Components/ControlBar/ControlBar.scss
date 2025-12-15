@@ -237,6 +237,10 @@ $dotSize: 0.8125em;
     margin-right: 0.75em;
   }
 
+  &.vjs-slider-active .vjs-mute-control {
+    pointer-events: none;
+  }
+
   .vjs-mute-control,
   .vjs-volume-control {
     float: left;
@@ -253,11 +257,21 @@ $dotSize: 0.8125em;
     height: $barHeight;
     text-align: right;
     &:before {
+      content: '';
       position: absolute;
-      top: #{(($barHeight / 2) - $dotSize) / 2};
-      right: #{($dotSize + ($barHeight / 2)) / -2};
-      font-size: $dotSize;
-      line-height: 1em;
+
+      // top: #{(($barHeight / 2) - $dotSize) / 2};
+      // right: #{($dotSize + ($barHeight / 2)) / -2};
+      // font-size: $dotSize;
+      // line-height: 1em;
+
+      width: $dotSize;
+      height: $dotSize;
+      background: rgb(255, 255, 255);
+      border-radius: 50%;
+      top: 50%;
+      right: 0;
+      transform: translate(50%, -50%);
     }
   }
 
