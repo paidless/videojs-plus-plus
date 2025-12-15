@@ -77,7 +77,7 @@ body.vjs-full-window {
   background-color: #000;
 }
 
-.video-js.vjs-user-inactive:not(.vjs-keep-control-showing) {
+.video-js.vjs-has-started.vjs-user-inactive:not(.vjs-keep-control-showing) {
   cursor: none;
 
   * {
