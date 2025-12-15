@@ -24,7 +24,9 @@ class SettingSubOptionItem extends SettingMenuItem {
 
   handleClick() {
     this.parent.onChange({ index: this.options_.index });
-    this.menu.restore();
+    this.menu.animate(() => {
+      this.menu.restore();
+    }, 'out');
   }
 }
 

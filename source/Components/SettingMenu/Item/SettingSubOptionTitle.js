@@ -12,7 +12,9 @@ class SettingSubOptionTitle extends SettingMenuItem {
   }
 
   handleClick() {
-    this.options_.menu.restore();
+    this.options_.menu.animate(() => {
+      this.options_.menu.restore();
+    }, 'out');
   }
 }
 

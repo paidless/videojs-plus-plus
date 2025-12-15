@@ -92,7 +92,9 @@ class SettingOptionItem extends SettingMenuItem {
   }
 
   handleClick() {
-    this.menu.transform(this.subMenuItems);
+    this.menu.animate(() => {
+      this.menu.transform(this.subMenuItems);
+    }, 'in');
   }
 
   select(index) {

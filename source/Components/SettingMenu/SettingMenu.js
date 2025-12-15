@@ -90,6 +90,65 @@ class SettingMenu extends Menu {
     this.transform(this.mainMenuItems);
   }
 
+  animate(operation, direction = 'in') {
+    const menuContent = this.contentEl_;
+    const animations = {
+      in: {
+        old: [
+          { opacity: 1, translate: '0 0' },
+          { opacity: 0, translate: '-100% 0' }
+        ],
+        new: [
+          { opacity: 0, translate: '100% 0' },
+          { opacity: 1, translate: '0 0' }
+        ]
+      },
+      out: {
+        old: [
+          { opacity: 1, translate: '0 0' },
+          { opacity: 0, translate: '100% 0' }
+        ],
+        new: [
+          { opacity: 0, translate: '-100% 0' },
+          { opacity: 1, translate: '0 0' }
+        ]
+      }
+    };
+    const clonedMenuContent = menuContent.cloneNode(true); // DOM operation
+
+    // For animation purpose
+    clonedMenuContent.style.position = 'absolute';
+    clonedMenuContent.style.bottom = '0';
+    clonedMenuContent.style.right = '0';
+    clonedMenuContent.style.pointerEvents = 'none';
+
+    this.el().appendChild(clonedMenuContent); // DOM operation
+
+    const oldAnimations = Array.from(clonedMenuContent.children).map(e =>
+      e.animate(animations[direction].old, {
+        duration: 200, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards'
+      })
+    );
+
+    Promise.all(oldAnimations.map(a => a.finished)).then(() => {
+      clonedMenuContent.remove(); // DOM operation
+    });
+
+    // Update menu content
+    operation();
+
+    // Animate new menu content
+    const newMenuContent = this.contentEl_;
+
+    const newAnimations = Array.from(newMenuContent.children).map(e =>
+      e.animate(animations[direction].new, {
+        duration: 250, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards'
+      })
+    );
+
+    return Promise.all(newAnimations.map(a => a.finished));
+  }
+
   removeStyle() {
     this.contentEl_.removeAttribute('style');
   }

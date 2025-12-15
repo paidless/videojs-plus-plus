@@ -27,8 +27,16 @@
 
   .vjs-menu-content {
     will-change: transform, width, height;
-    transition: 0.3s transform ease, 0.3s width ease, 0.3s height ease;
+    transition:
+      0.25s transform cubic-bezier(0.4, 0, 0.2, 1),
+      0.25s width cubic-bezier(0.4, 0, 0.2, 1),
+      0.25s height cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   .vjs-menu-item {
@@ -113,6 +121,10 @@
       transform: rotate(45deg);
     }
   }
+  .vjs-menu-item-text {
+    translate: -50% 0;
+    margin-left: calc(50% - 1.5em); // 1.5em is the width of the arrow + margin
+  }
 }
 
 .vjs-settings-sub-menu-option {
@@ -179,15 +191,30 @@
   &.vjs-setting-menu-item {
     min-width: 16em;
   }
+
+  &.vjs-settings-sub-menu-item {
+    min-width: 12em;
+  }
 }
 
-@media (min-width: $small-dimension + 1) {
+@media (min-width: ($small-dimension + 1)) {
   .vjs-menu.vjs-setting-menu {
     right: $control-bar-horizontal-padding;
     bottom: calc(#{$control-bar-height} + 15px);
     z-index: 1;
     max-height: $menu-with-title-max-height;
     overflow-y: auto;
+
+    opacity: 0;
+    will-change: opacity;
+  
+    &:not(:has(.vjs-settings-sub-menu-item)) {
+      transition: opacity .1s cubic-bezier(0, 0, 0.2, 1), visibility .1s cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    &.vjs-lock-showing {
+      opacity: 1;
+    }
 
     .vjs-menu-item {
       .vjs-icon-placeholder {
