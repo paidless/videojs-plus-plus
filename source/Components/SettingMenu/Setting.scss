@@ -26,9 +26,8 @@
   }
 
   .vjs-menu-content {
-    will-change: transform, width, height;
+    will-change: width, height;
     transition:
-      0.25s transform cubic-bezier(0.4, 0, 0.2, 1),
       0.25s width cubic-bezier(0.4, 0, 0.2, 1),
       0.25s height cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
@@ -40,6 +39,9 @@
   }
 
   .vjs-menu-item {
+    will-change: transform;
+    transition: 0.25s transform cubic-bezier(0.4, 0, 0.2, 1);
+
     // display: table;
     display: flex;
     align-items: center;
