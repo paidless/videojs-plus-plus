@@ -37,7 +37,7 @@
   }
 }
 
-@media (min-width: $small-dimension +1) {
+@media (min-width: ($small-dimension + 1)) {
   .vjs-context-menu {
     position: absolute;
     top: 0;
