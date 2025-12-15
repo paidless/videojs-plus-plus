@@ -16,8 +16,7 @@ $live-off-color: #ccc;
   }
 
   .vjs-live-notice {
-    display: flex;
-    align-items: center;
+    display: block;
     font-size: 0.9em;
     line-height: $control-bar-button-height;
     cursor: pointer;
@@ -33,13 +32,14 @@ $live-off-color: #ccc;
 }
 
 .vjs-live-notice-spot {
+  display: inline-block;
   font-size: 0.65em;
   margin-right: 0.4em;
   color: $live-off-color;
   line-height: 1em;
 
   // .vjs-live-streaming.vjs-live & {
-    .vjs-live-streaming .vjs-live-notice.vjs-at-live-edge & {
+  .vjs-live-streaming .vjs-live-notice.vjs-at-live-edge & {
     color: $live-color;
   }
 }
