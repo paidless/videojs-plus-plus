@@ -852,6 +852,7 @@
       clonedMenuContent.style.bottom = '0';
       clonedMenuContent.style.right = '0';
       clonedMenuContent.style.pointerEvents = 'none';
+      clonedMenuContent.style.backgroundColor = 'transparent';
       this.el().appendChild(clonedMenuContent); // DOM operation
 
       this.addClass('vjs-setting-menu-animating');
