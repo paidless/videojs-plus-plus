@@ -142,7 +142,7 @@ class SettingMenu extends Menu {
 
     const newAnimations = Array.from(newMenuContent.children).map(e =>
       e.animate(animations[direction].new, {
-        duration: 250, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards'
+        duration: 250, easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
       })
     );
 
